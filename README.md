@@ -1,18 +1,19 @@
-# 0G RollPlay
+# AmonixPlay
 
 ## Decentralized AI-Powered Multi-Chain Gaming Platform
-
-> **Blockchain Gaming on the 0G Network**  
-> 0G RollPlay is a gaming platform built on the **0G Network**, using decentralized AI. It supports multiple blockchains like **Ethereum (EVM)**, **Solana**, and more. Play-to-Earn (P2E) mechanics let you earn real crypto rewards.
-
+ 
+> AmonixPlay is a multi-chain gaming platform designed to combine the best of Web3, AI, and blockchain technologies to create a fair, rewarding, and engaging ecosystem for gamers worldwide. AmonixPlay integrates AI-driven game mechanics with Play-to-Earn (P2E) systems, NFT avatars, and a decentralized token economy that rewards players for their skills and achievements.
 ---
 
+![](client/src/assets/img/background-ap.png)
+
+---
 ## Current Features
 
-- **Decentralized AI**
-- **Multi-Chain Support**: Play on **Ethereum (EVM)**, **Solana**, and other supported blockchains. Your assets and rewards can move between chains.
-- **Play-to-Earn (P2E)**: Earn real **crypto rewards** while playing. Rewards are powered by the 0G Network's AI to make payouts fair.
-- **NFT Avatars**: Create and use **NFT avatars**, supported on Ethereum, and other networks.
+- **Multi-Chain Integration**: Seamless interaction across different blockchain networks, offering scalability and interoperability.
+- **AI-Powered Gameplay**: Adaptive AI mechanics that assess player skill levels and match them with suitable opponents to ensure fair gameplay.
+- **Play-to-Earn (P2E)**: Players can earn cryptocurrency rewards based on in-game performance, creating real-world value from gaming achievements.
+- **NFT Avatars**: Unique, customizable avatars that represent in-game personas and hold inherent value.
 - **On-Chain Game Logic**: All gameplay is controlled by smart contracts.
 - **Token Integration**: Stake and earn with native tokens across different blockchains.
 - **Mobile and Desktop Ready**: The platform works on both **desktop** and **mobile** devices.
@@ -41,7 +42,7 @@
 
 ```bash
 git clone <git-repository-url>
-cd 0gRollplay
+cd <Project Directory>
 
 # Install root dependencies
 npm install
@@ -83,6 +84,4 @@ npm start
   - Screenshots for UI updates  
 - Tag related issues/tasks.
 
-## Confidentiality
-This repository is proprietary to **0G AI**.
 
