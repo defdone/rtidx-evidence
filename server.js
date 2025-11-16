@@ -15,7 +15,7 @@ configureMiddleware(app);
 configureRoutes(app);
 
 // ---- AUTO PORT LOGIC ----
-let port = Number(config.PORT) || 3030;
+let port = Number(config.PORT) || 7777;
 let server;
 
 const startServer = () => {
