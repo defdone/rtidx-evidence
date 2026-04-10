@@ -18,22 +18,15 @@ The malware activates the moment the server starts — triggered either by `npm 
 
 ## Kill Chain
 
-```
-1. npm install
-   └─► "prepare" hook fires: `start /b node server || nohup node server &`
-       └─► server.js loads
-           └─► routes/api/auth.js is require()'d at module load time
-               └─► validateApiKey() runs immediately (top-level call)
-                   ├─► setApiKey() decodes base64 AUTH_API from .env
-                   │   └─► "https://ipcheck-six.vercel.app/api"
-                   ├─► verify() POSTs entire process.env to C2 server
-                   │   └─► { ...process.env } = ALL env vars exfiltrated
-                   └─► C2 responds with JavaScript code string
-                       └─► new Function("require", response.data)
-                           └─► executor(require) — ARBITRARY CODE EXECUTION
-                               └─► attacker now has require() access
-                                   └─► can load fs, child_process, os, net, etc.
-```
+1. **npm install** triggers `prepare` hook: `start /b node server || nohup node server &`
+2. **server.js** loads, which `require()`s `routes/api/auth.js`
+3. **routes/api/auth.js** calls `validateApiKey()` at module load (top-level, immediate)
+4. `setApiKey()` decodes base64 `AUTH_API` from `.env` -> `https://ipcheck-six.vercel.app/api`
+5. `verify()` POSTs `{ ...process.env }` (ALL env vars) to C2 server
+6. C2 responds with a JavaScript code string
+7. `new Function("require", response.data)` constructs executable function
+8. `executor(require)` runs it -- **ARBITRARY CODE EXECUTION** with full `require()` access
+9. Attacker can now load `fs`, `child_process`, `os`, `net`, etc.
 
 ---
 
