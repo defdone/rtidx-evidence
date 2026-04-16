@@ -1,0 +1,143 @@
+{
+  "case_id": "e68fc35d-777d-4fb7-b94c-17e1badea12a",
+  "captured_at": "2026-04-16T12:44:33.979Z",
+  "source_url": "https://github.com/kio87j/DeFi-Estate",
+  "source_provider": "github",
+  "source_ref": "5aa1acec3a4658b9a043edf7ddc4bb69be6df447",
+  "vault_branch": "case/e68fc35d-777d-4fb7-b94c-17e1badea12a",
+  "verdict": "malicious",
+  "total_score": 125,
+  "confidence": 0.95,
+  "channel": "linkedin_dm",
+  "file_count": 61,
+  "feature_vector": {
+    "has_flattery": false,
+    "has_urgency": false,
+    "has_salary_anomaly": false,
+    "has_vague_description": false,
+    "has_move_platform": false,
+    "has_upfront_payment": false,
+    "has_no_interview_offer": false,
+    "has_crypto_wallet_request": false,
+    "has_copy_paste_template": false,
+    "has_repo": true,
+    "repo_exec_required": true,
+    "has_postinstall": false,
+    "has_eval": false,
+    "has_obfuscation": true,
+    "has_exfil_paths": false,
+    "has_external_fetch": false,
+    "has_crypto_libs": false,
+    "has_known_campaign_match": false,
+    "repo_age_days": 0,
+    "repo_stars": 0,
+    "repo_single_contributor": true,
+    "repo_is_fork": false,
+    "owner_account_age_days": null,
+    "reporter_flag_count": 3,
+    "total_signal_count": 10,
+    "distinct_category_count": 4,
+    "combined_score": 125
+  },
+  "provenance": {
+    "createdAt": "2026-04-16T12:42:06.000Z",
+    "pushedAt": "2026-04-16T12:42:06.000Z",
+    "stars": 0,
+    "forks": 0,
+    "ageInDays": 0,
+    "commitCount": 1,
+    "contributorCount": 1,
+    "hasGenericCommitMessages": false,
+    "ownerAccountAgeDays": null,
+    "isFork": false,
+    "parentFullName": null
+  },
+  "repo_profile": {
+    "type": "web3",
+    "frameworks": [
+      "react",
+      "viem",
+      "wagmi",
+      "express"
+    ],
+    "expectedPatterns": [
+      "ethereum_wallet_dir",
+      "bitcoin_wallet_dir",
+      "crypto_keystore",
+      "dotenv_require"
+    ],
+    "confidence": 0.9
+  },
+  "signals": [
+    {
+      "type": "exfil_pattern",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 30
+    },
+    {
+      "type": "runnable_repo",
+      "source": "rule_engine",
+      "severity": "medium",
+      "score": 25
+    },
+    {
+      "type": "fresh_repo",
+      "source": "rule_engine",
+      "severity": "medium",
+      "score": 15
+    },
+    {
+      "type": "zero_community",
+      "source": "rule_engine",
+      "severity": "low",
+      "score": 5
+    },
+    {
+      "type": "single_contributor",
+      "source": "rule_engine",
+      "severity": "low",
+      "score": 5
+    },
+    {
+      "type": "run_code_pressure",
+      "source": "rule_engine",
+      "severity": "high",
+      "score": 20
+    },
+    {
+      "type": "no_formal_contract",
+      "source": "rule_engine",
+      "severity": "medium",
+      "score": 10
+    },
+    {
+      "type": "suspected_breached_profile",
+      "source": "rule_engine",
+      "severity": "medium",
+      "score": 15
+    }
+  ],
+  "findings": [
+    {
+      "file": "server/app.js",
+      "line": 1,
+      "pattern": "dotenv_require",
+      "category": "env_access",
+      "ai_verdict": "true_positive",
+      "ai_reason": "Loading dotenv is a normal and expected pattern in this web3/Express repository for accessing environment variables."
+    },
+    {
+      "file": "server/services/authService.js",
+      "line": 36,
+      "pattern": "base64_buffer_decode",
+      "category": "obfuscation",
+      "ai_verdict": "needs_review",
+      "ai_reason": "Base64 decoding a token may be legitimate parsing, but it can also be used to hide or transform sensitive data, so intent is unclear from this snippet alone."
+    }
+  ],
+  "flagged_files": [
+    "server/app.js",
+    "server/services/authService.js"
+  ]
+}
