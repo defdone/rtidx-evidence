@@ -1,9 +1,9 @@
 {
   "case_id": "e68fc35d-777d-4fb7-b94c-17e1badea12a",
-  "captured_at": "2026-04-16T12:44:33.979Z",
+  "captured_at": "2026-04-16T12:47:44.661Z",
   "source_url": "https://github.com/kio87j/DeFi-Estate",
   "source_provider": "github",
-  "source_ref": "5aa1acec3a4658b9a043edf7ddc4bb69be6df447",
+  "source_ref": "fdf6a710d90843a9fb7f404e43d1a1f9d2c253f9",
   "vault_branch": "case/e68fc35d-777d-4fb7-b94c-17e1badea12a",
   "verdict": "malicious",
   "total_score": 125,
@@ -40,8 +40,8 @@
     "combined_score": 125
   },
   "provenance": {
-    "createdAt": "2026-04-16T12:42:06.000Z",
-    "pushedAt": "2026-04-16T12:42:06.000Z",
+    "createdAt": "2026-04-16T12:47:32.000Z",
+    "pushedAt": "2026-04-16T12:47:32.000Z",
     "stars": 0,
     "forks": 0,
     "ageInDays": 0,
@@ -133,7 +133,7 @@
       "pattern": "base64_buffer_decode",
       "category": "obfuscation",
       "ai_verdict": "needs_review",
-      "ai_reason": "Base64 decoding a token may be legitimate parsing, but it can also be used to hide or transform sensitive data, so intent is unclear from this snippet alone."
+      "ai_reason": "Base64 decoding a token may be legitimate parsing, but without surrounding context it is ambiguous whether it is harmless normalization or obfuscation."
     }
   ],
   "flagged_files": [
