@@ -1,13 +1,13 @@
 {
   "case_id": "1bff85fe-0921-45b4-b552-e6c19418c541",
-  "captured_at": "2026-04-16T12:21:27.250Z",
+  "captured_at": "2026-04-16T13:00:42.934Z",
   "source_url": "https://bitbucket.org/0xtechmvplab/crypto-trading",
   "source_provider": "bitbucket",
   "source_ref": "d6b6e7434a29409b7fa33b461e2ebf0bf04e5681",
   "vault_branch": "case/1bff85fe-0921-45b4-b552-e6c19418c541",
-  "verdict": "malicious",
-  "total_score": 150,
-  "confidence": 0.95,
+  "verdict": "high_risk",
+  "total_score": 60,
+  "confidence": 0.6,
   "channel": "linkedin_dm",
   "file_count": 1370,
   "feature_vector": {
@@ -35,9 +35,9 @@
     "repo_is_fork": false,
     "owner_account_age_days": null,
     "reporter_flag_count": 1,
-    "total_signal_count": 85,
-    "distinct_category_count": 4,
-    "combined_score": 150
+    "total_signal_count": 45,
+    "distinct_category_count": 3,
+    "combined_score": 60
   },
   "provenance": {
     "createdAt": "2025-06-08T00:17:07.000Z",
@@ -68,246 +68,6 @@
     "confidence": 0.8
   },
   "signals": [
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 35
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 5
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 5
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 5
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 5
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_campaign_indicator",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 35
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
-    {
-      "type": "known_malicious_pattern",
-      "source": "repo_scan",
-      "severity": "critical",
-      "score": 0
-    },
     {
       "type": "runnable_repo",
       "source": "rule_engine",
@@ -345,361 +105,321 @@
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "This is a minified third-party browser bundle for charting UI code, which is normal for a frontend asset and does not indicate malicious behavior by itself."
     },
     {
       "file": "public/charting_library/bundles/1740.4c61de525e940eee4f3c.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "This is a minified third-party browser bundle containing standard UI/library code, not evidence of obfuscation for malicious purposes."
     },
     {
       "file": "public/charting_library/bundles/2052.e9d07fdfb896fca26166.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "This is a minified frontend bundle with ordinary React/UI logic and CSS module mappings, which is expected in shipped assets."
     },
     {
       "file": "public/charting_library/bundles/2443.66f44a8bfe8d49aaeaee.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "This bundle contains standard library code (e.g., ResizeObserver polyfill and React helpers) and is normal for a packaged frontend dependency."
     },
     {
       "file": "public/charting_library/bundles/2544.225f38946afc6ad55a35.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "The code is a minified UI bundle with menu and popup components, which is expected in a compiled frontend library."
     },
     {
       "file": "public/charting_library/bundles/2846.fbbd62afe04b4f9387f2.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "This is compiled charting-library code with normal property-definition logic and no signs of malicious execution or data exfiltration."
     },
     {
       "file": "public/charting_library/bundles/3263.238cd2d620e004adee5a.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "The file is a minified frontend bundle with UI components and localization data, which is normal for shipped browser assets."
     },
     {
       "file": "public/charting_library/bundles/3986.b50fcad4f1b77533bda7.js",
       "line": 3,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "This is standard compiled charting-library code with property-definition helpers and UI logic, not suspicious obfuscation."
     },
     {
       "file": "public/charting_library/bundles/4062.9229fac3ef3db26fd5bc.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "The bundle contains ordinary React/Redux/utility library code and minified runtime helpers, which is expected in production builds."
     },
     {
       "file": "public/charting_library/bundles/4370.18ca7d93e5073f0446c0.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "This is a minified browser bundle implementing ResizeObserver and utility code, which is normal for frontend dependencies."
     },
     {
       "file": "public/charting_library/bundles/4403.bf44a542113a4440984b.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "The code is standard compiled UI/input control logic and CSS handling, which is expected in a frontend bundle."
     },
     {
       "file": "public/charting_library/bundles/4648.7172f75bb866b3438c6f.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "This is a minified charting-library bundle with UI components, emoji lists, and layout logic, which is normal shipped frontend code."
     },
     {
       "file": "public/charting_library/bundles/4713.d82fc553d710da1606f0.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "The file contains ordinary calendar/date-picker UI logic in minified form, which is expected for a bundled frontend library."
     },
     {
       "file": "public/charting_library/bundles/5057.5382614553878fcf337d.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "This is a minified dialog/popup UI bundle with standard component logic and no malicious behavior."
     },
     {
       "file": "public/charting_library/bundles/5128.57de9f218989cee8119d.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "The bundle contains normal context-menu and UI component code from a frontend library, not evidence of harmful obfuscation."
     },
     {
       "file": "public/charting_library/bundles/5142.2c34c8656148cc5203b7.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "This is a minified frontend bundle with geometry/math utilities and UI helpers, which is typical production code."
     },
     {
       "file": "public/charting_library/bundles/5164.a45b25a7ca6a0c16f810.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "The code is standard React UI component logic for buttons, controls, and menus in a compiled frontend asset."
     },
     {
       "file": "public/charting_library/bundles/5664.87e81959e880fa8ba65d.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "This is a minified emoji picker/UI bundle with static emoji data and rendering logic, which is normal for a frontend package."
     },
     {
       "file": "public/charting_library/bundles/5983.3c0ae13972f5d3433a77.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "The bundle contains ordinary tab/navigation UI logic and helper functions, which is expected in compiled frontend code."
     },
     {
       "file": "public/charting_library/bundles/6408.e58aaf98d9306e8d9b77.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "This is a standard compiled dialog/overlay bundle with resize and drag handling, not malicious obfuscation."
     },
     {
       "file": "public/charting_library/bundles/6918.c8f3265e9286a784038b.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "The file contains a normal React/PropTypes runtime bundle and utility code, which is expected in production JavaScript."
     },
     {
       "file": "public/charting_library/bundles/7051.ba50ecafb4527628fb40.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "This is a minified UI bundle with button, input, and control components, which is normal frontend asset code."
     },
     {
       "file": "public/charting_library/bundles/750.e16edadfacd60574d861.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "The code is a large compiled symbol-search UI bundle with standard application logic and no signs of malicious behavior."
     },
     {
       "file": "public/charting_library/bundles/750.e16edadfacd60574d861.js",
       "line": 14,
       "pattern": "vm_detection",
       "category": "known_campaign",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "The vm_detection finding appears to be a false alarm in a charting-library bundle that contains ordinary search and UI logic, not VM detection code."
     },
     {
       "file": "public/charting_library/bundles/7550.087936b2aa6ea51cd6bf.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "This is a minified frontend bundle with button/input/control components and helper utilities, which is expected shipped code."
     },
     {
       "file": "public/charting_library/bundles/7663.6fabc58c7ddf7c2b076f.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "The file contains normal calendar/session-schedule UI logic and localization data, which is typical for a bundled frontend library."
     },
     {
       "file": "public/charting_library/bundles/8167.3edae41386acc976c9f8.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "This is compiled charting-library property-definition code with standard data structures and UI metadata, not malicious obfuscation."
     },
     {
       "file": "public/charting_library/bundles/8882.9838a8b1e0e6766b6408.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "The bundle is the React runtime/DOM property handling code, which is normal in frontend builds."
     },
     {
       "file": "public/charting_library/bundles/962.9f54d549868e21286372.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "This is a standard compiled compare-dialog and UI bundle with normal component logic and no malicious behavior."
     },
     {
       "file": "public/charting_library/bundles/add-compare-dialog.5039a5ac2f3556b18cb1.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "The file is a localization bundle containing Arabic strings, which is normal for a multilingual frontend application."
     },
     {
       "file": "public/charting_library/bundles/ar.2285.1268ecef367debd2960b.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "This is a localization bundle with Arabic translations, which is expected and not suspicious."
     },
     {
       "file": "public/charting_library/bundles/ar.2547.28b713bedf796244795d.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "The file is a localization bundle with Arabic strings for chart settings, which is normal frontend asset content."
     },
     {
       "file": "public/charting_library/bundles/ar.3175.e0a2c845c5cba23f42fb.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "This is a localization bundle containing Arabic UI strings, which is expected in a translated frontend package."
     },
     {
       "file": "public/charting_library/bundles/ar.3236.e12bb9a536432e97ec0c.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "The file is a localization bundle with Arabic strings for chart actions and menus, which is normal shipped content."
     },
     {
       "file": "public/charting_library/bundles/ar.344.a9e566fa1091368f40c7.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "This is a localization bundle with Arabic translations for charting features, which is expected frontend data."
     },
     {
       "file": "public/charting_library/bundles/ar.3951.babac9be598102fb0d92.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "The file contains Arabic localization strings for chart inputs and indicators, which is normal and not malicious."
     },
     {
       "file": "public/charting_library/bundles/ar.4716.e4ac74dfc9ec5374b00c.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "This is a localization bundle with Arabic strings for chart settings, which is expected in a frontend application."
     },
     {
       "file": "public/charting_library/bundles/ar.5362.311bfba5d2c84b13ec2b.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "The file is a localization bundle with Arabic translations for chart UI labels, which is normal shipped content."
     },
     {
       "file": "public/charting_library/bundles/ar.6306.b88dcc3f0d7db89ebfc1.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "This is a localization bundle containing Arabic strings for charting features, which is expected frontend asset data."
     },
     {
       "file": "public/charting_library/bundles/ca_ES.2547.28b713bedf796244795d.js",
       "line": 1,
       "pattern": "minified_suspicious_code",
       "category": "obfuscation",
-      "ai_verdict": "true_positive",
-      "ai_reason": "AI unavailable — conservatively marked as true positive"
+      "ai_verdict": "false_positive",
+      "ai_reason": "The file is a localization bundle with Arabic translations for chart settings and labels, which is normal and not suspicious."
     }
   ],
-  "flagged_files": [
-    "public/charting_library/bundles/1553.c076714f5e24887f0b94.js",
-    "public/charting_library/bundles/1740.4c61de525e940eee4f3c.js",
-    "public/charting_library/bundles/2052.e9d07fdfb896fca26166.js",
-    "public/charting_library/bundles/2443.66f44a8bfe8d49aaeaee.js",
-    "public/charting_library/bundles/2544.225f38946afc6ad55a35.js",
-    "public/charting_library/bundles/2846.fbbd62afe04b4f9387f2.js",
-    "public/charting_library/bundles/3263.238cd2d620e004adee5a.js",
-    "public/charting_library/bundles/3986.b50fcad4f1b77533bda7.js",
-    "public/charting_library/bundles/4062.9229fac3ef3db26fd5bc.js",
-    "public/charting_library/bundles/4370.18ca7d93e5073f0446c0.js",
-    "public/charting_library/bundles/4403.bf44a542113a4440984b.js",
-    "public/charting_library/bundles/4648.7172f75bb866b3438c6f.js",
-    "public/charting_library/bundles/4713.d82fc553d710da1606f0.js",
-    "public/charting_library/bundles/5057.5382614553878fcf337d.js",
-    "public/charting_library/bundles/5128.57de9f218989cee8119d.js",
-    "public/charting_library/bundles/5142.2c34c8656148cc5203b7.js",
-    "public/charting_library/bundles/5164.a45b25a7ca6a0c16f810.js",
-    "public/charting_library/bundles/5664.87e81959e880fa8ba65d.js",
-    "public/charting_library/bundles/5983.3c0ae13972f5d3433a77.js",
-    "public/charting_library/bundles/6408.e58aaf98d9306e8d9b77.js",
-    "public/charting_library/bundles/6918.c8f3265e9286a784038b.js",
-    "public/charting_library/bundles/7051.ba50ecafb4527628fb40.js",
-    "public/charting_library/bundles/750.e16edadfacd60574d861.js",
-    "public/charting_library/bundles/7550.087936b2aa6ea51cd6bf.js",
-    "public/charting_library/bundles/7663.6fabc58c7ddf7c2b076f.js",
-    "public/charting_library/bundles/8167.3edae41386acc976c9f8.js",
-    "public/charting_library/bundles/8882.9838a8b1e0e6766b6408.js",
-    "public/charting_library/bundles/962.9f54d549868e21286372.js",
-    "public/charting_library/bundles/add-compare-dialog.5039a5ac2f3556b18cb1.js",
-    "public/charting_library/bundles/ar.2285.1268ecef367debd2960b.js",
-    "public/charting_library/bundles/ar.2547.28b713bedf796244795d.js",
-    "public/charting_library/bundles/ar.3175.e0a2c845c5cba23f42fb.js",
-    "public/charting_library/bundles/ar.3236.e12bb9a536432e97ec0c.js",
-    "public/charting_library/bundles/ar.344.a9e566fa1091368f40c7.js",
-    "public/charting_library/bundles/ar.3951.babac9be598102fb0d92.js",
-    "public/charting_library/bundles/ar.4716.e4ac74dfc9ec5374b00c.js",
-    "public/charting_library/bundles/ar.5362.311bfba5d2c84b13ec2b.js",
-    "public/charting_library/bundles/ar.6306.b88dcc3f0d7db89ebfc1.js",
-    "public/charting_library/bundles/ca_ES.2547.28b713bedf796244795d.js"
-  ]
+  "flagged_files": []
 }
