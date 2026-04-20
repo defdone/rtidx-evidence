@@ -1,0 +1,37 @@
+{
+  "name": "ai-agent-marketplace",
+  "version": "1.0.0",
+  "description": "Decentralized AI Agent Marketplace - Proof of Concept",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "frontend",
+    "backend",
+    "contracts"
+  ],
+  "scripts": {
+    "setup": "node setup.js",
+    "install:all": "npm install --workspaces",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\" --names \"backend,frontend\" --prefix-colors \"blue,green\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "build:frontend": "cd frontend && npm run build",
+    "build:contracts": "cd contracts && npm run compile",
+    "test:contracts": "cd contracts && npm test",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm run preview"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "keywords": [
+    "blockchain",
+    "ai",
+    "marketplace",
+    "nft",
+    "ethereum"
+  ],
+  "author": "",
+  "license": "ISC"
+}
+
