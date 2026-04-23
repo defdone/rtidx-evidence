@@ -1,0 +1,429 @@
+{
+  "case_id": "51f4e1e8-5875-4173-b140-a91ef42d229f",
+  "captured_at": "2026-04-23T22:15:04.297Z",
+  "source_url": "https://bitbucket.org/daam2251/ai-agent-marketplace/src/main/",
+  "source_provider": "bitbucket",
+  "source_ref": "039ec207c415017aa4de501db8c21482e0408b59",
+  "vault_branch": "case/51f4e1e8-5875-4173-b140-a91ef42d229f",
+  "verdict": "malicious",
+  "total_score": 125,
+  "confidence": 0.95,
+  "channel": "linkedin_dm",
+  "file_count": 88,
+  "feature_vector": {
+    "has_flattery": false,
+    "has_urgency": false,
+    "has_salary_anomaly": false,
+    "has_vague_description": false,
+    "has_move_platform": false,
+    "has_upfront_payment": false,
+    "has_no_interview_offer": false,
+    "has_crypto_wallet_request": false,
+    "has_copy_paste_template": false,
+    "has_repo": true,
+    "repo_exec_required": true,
+    "has_postinstall": false,
+    "has_eval": true,
+    "has_obfuscation": true,
+    "has_exfil_paths": true,
+    "has_external_fetch": false,
+    "has_crypto_libs": true,
+    "has_known_campaign_match": false,
+    "repo_age_days": 3,
+    "repo_stars": 0,
+    "repo_single_contributor": true,
+    "repo_is_fork": false,
+    "owner_account_age_days": null,
+    "reporter_flag_count": 1,
+    "total_signal_count": 48,
+    "distinct_category_count": 6,
+    "combined_score": 125
+  },
+  "provenance": {
+    "createdAt": "2026-04-20T02:38:17.000Z",
+    "pushedAt": "2026-04-20T02:38:17.000Z",
+    "stars": 0,
+    "forks": 0,
+    "ageInDays": 3,
+    "commitCount": 1,
+    "contributorCount": 1,
+    "hasGenericCommitMessages": false,
+    "ownerAccountAgeDays": null,
+    "isFork": false,
+    "parentFullName": null
+  },
+  "repo_profile": {
+    "type": "defi",
+    "frameworks": [
+      "express",
+      "ethers",
+      "@openzeppelin/contracts",
+      "hardhat",
+      "react"
+    ],
+    "expectedPatterns": [
+      "dotenv_require",
+      "ethereum_wallet_dir",
+      "bitcoin_wallet_dir",
+      "crypto_keystore"
+    ],
+    "confidence": 1
+  },
+  "signals": [
+    {
+      "type": "known_malicious_pattern",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 35
+    },
+    {
+      "type": "known_malicious_pattern",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 5
+    },
+    {
+      "type": "known_malicious_pattern",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 5
+    },
+    {
+      "type": "known_malicious_pattern",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 5
+    },
+    {
+      "type": "known_malicious_pattern",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 5
+    },
+    {
+      "type": "known_malicious_pattern",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "known_malicious_pattern",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "known_malicious_pattern",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "known_malicious_pattern",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "known_malicious_pattern",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "known_malicious_pattern",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "known_malicious_pattern",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "known_malicious_pattern",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "known_malicious_pattern",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "known_malicious_pattern",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "runnable_repo",
+      "source": "rule_engine",
+      "severity": "medium",
+      "score": 25
+    },
+    {
+      "type": "fresh_repo",
+      "source": "rule_engine",
+      "severity": "medium",
+      "score": 15
+    },
+    {
+      "type": "zero_community",
+      "source": "rule_engine",
+      "severity": "low",
+      "score": 5
+    },
+    {
+      "type": "single_contributor",
+      "source": "rule_engine",
+      "severity": "low",
+      "score": 5
+    },
+    {
+      "type": "run_code_pressure",
+      "source": "rule_engine",
+      "severity": "high",
+      "score": 20
+    }
+  ],
+  "findings": [
+    {
+      "file": "scripts/auto-start-windows.bat",
+      "line": 79,
+      "pattern": "powershell_web_request",
+      "category": "shell_cmd",
+      "ai_verdict": "true_positive",
+      "ai_reason": "The script downloads and executes remote content via PowerShell Invoke-WebRequest, which is a risky remote code delivery pattern."
+    },
+    {
+      "file": "scripts/auto-start-windows.bat",
+      "line": 181,
+      "pattern": "powershell_web_request",
+      "category": "shell_cmd",
+      "ai_verdict": "true_positive",
+      "ai_reason": "The script downloads the Node.js installer from an external URL using PowerShell Invoke-WebRequest, which is a remote download action."
+    },
+    {
+      "file": "scripts/download-nodejs.ps1",
+      "line": 7,
+      "pattern": "powershell_web_request",
+      "category": "shell_cmd",
+      "ai_verdict": "true_positive",
+      "ai_reason": "The script fetches data from nodejs.org with Invoke-WebRequest, which is an external network request."
+    },
+    {
+      "file": "scripts/download-nodejs.ps1",
+      "line": 23,
+      "pattern": "powershell_web_request",
+      "category": "shell_cmd",
+      "ai_verdict": "true_positive",
+      "ai_reason": "The script downloads an MSI installer from an external URL using Invoke-WebRequest, which is a remote download action."
+    },
+    {
+      "file": "scripts/install-windows.bat",
+      "line": 6,
+      "pattern": "curl_pipe_shell",
+      "category": "shell_cmd",
+      "ai_verdict": "true_positive",
+      "ai_reason": "The install instructions explicitly pipe curl output into bash, which is a known remote code execution pattern."
+    },
+    {
+      "file": "scripts/install-windows.bat",
+      "line": 32,
+      "pattern": "powershell_web_request",
+      "category": "shell_cmd",
+      "ai_verdict": "true_positive",
+      "ai_reason": "The script uses PowerShell Invoke-WebRequest to download a remote installer script, which is an external fetch."
+    },
+    {
+      "file": "scripts/install.ps1",
+      "line": 4,
+      "pattern": "powershell_web_request",
+      "category": "shell_cmd",
+      "ai_verdict": "true_positive",
+      "ai_reason": "The installer documentation uses Invoke-WebRequest to fetch a remote script, which is a network download."
+    },
+    {
+      "file": "scripts/install.ps1",
+      "line": 4,
+      "pattern": "powershell_invoke_expression",
+      "category": "shell_cmd",
+      "ai_verdict": "true_positive",
+      "ai_reason": "The documentation suggests piping a downloaded script into Invoke-Expression, which executes remote content."
+    },
+    {
+      "file": "scripts/install.ps1",
+      "line": 32,
+      "pattern": "powershell_web_request",
+      "category": "shell_cmd",
+      "ai_verdict": "true_positive",
+      "ai_reason": "The script downloads another installer file from a remote URL using Invoke-WebRequest, which is an external fetch."
+    },
+    {
+      "file": "scripts/install.sh",
+      "line": 4,
+      "pattern": "curl_pipe_shell",
+      "category": "shell_cmd",
+      "ai_verdict": "true_positive",
+      "ai_reason": "The install instructions pipe curl output directly into bash, which executes remote content."
+    },
+    {
+      "file": "scripts/install.sh",
+      "line": 5,
+      "pattern": "curl_pipe_shell",
+      "category": "shell_cmd",
+      "ai_verdict": "true_positive",
+      "ai_reason": "The install instructions pipe curl output directly into sh, which executes remote content."
+    },
+    {
+      "file": "scripts/start-mac.sh",
+      "line": 39,
+      "pattern": "curl_pipe_shell",
+      "category": "shell_cmd",
+      "ai_verdict": "true_positive",
+      "ai_reason": "The macOS instructions recommend piping curl output into bash, which is a remote code execution pattern."
+    },
+    {
+      "file": "scripts/start-mac.sh",
+      "line": 60,
+      "pattern": "curl_pipe_shell",
+      "category": "shell_cmd",
+      "ai_verdict": "true_positive",
+      "ai_reason": "The macOS instructions recommend piping curl output into bash, which executes downloaded code."
+    },
+    {
+      "file": "setup.js",
+      "line": 8,
+      "pattern": "child_process_import",
+      "category": "node_dangerous",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Importing child_process in a Node.js setup script is normal for a repository installer and not inherently malicious."
+    },
+    {
+      "file": "setup.js",
+      "line": 30,
+      "pattern": "exec_sync",
+      "category": "node_dangerous",
+      "ai_verdict": "false_positive",
+      "ai_reason": "execSync is used in a setup script to run local installation commands, which is expected for project bootstrap tooling."
+    },
+    {
+      "file": "setup.js",
+      "line": 43,
+      "pattern": "exec_sync",
+      "category": "node_dangerous",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Running node --version via execSync is a benign environment check in a setup script."
+    },
+    {
+      "file": "backend/src/data/mockData.js",
+      "line": 295,
+      "pattern": "atob_decode",
+      "category": "obfuscation",
+      "ai_verdict": "true_positive",
+      "ai_reason": "The code decodes a base64 URL and fetches remote content, which is an obfuscated external request."
+    },
+    {
+      "file": "backend/src/data/mockData.js",
+      "line": 298,
+      "pattern": "base64_buffer_decode",
+      "category": "obfuscation",
+      "ai_verdict": "true_positive",
+      "ai_reason": "The code base64-decodes and gunzips remote response data before executing it with new Function, which is arbitrary code execution."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 11,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Checking window.ethereum is standard for a web3 frontend and does not indicate exfiltration."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 24,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Requesting eth_requestAccounts from MetaMask is normal wallet connection behavior in a dApp."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 33,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Creating an ethers BrowserProvider from window.ethereum is standard web3 integration."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 77,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Reading eth_accounts is normal wallet state access in a dApp."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 84,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Creating a BrowserProvider and signer when accounts exist is standard wallet handling."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 123,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "wallet_switchEthereumChain is a normal MetaMask network-switch request in a dApp."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 157,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Listening for accountsChanged is standard wallet event handling in web3 apps."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 160,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Removing the accountsChanged listener is normal cleanup code."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 172,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Listening for chainChanged is standard wallet event handling in web3 apps."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 175,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Removing the chainChanged listener is normal cleanup code."
+    }
+  ],
+  "flagged_files": [
+    "scripts/auto-start-windows.bat",
+    "scripts/download-nodejs.ps1",
+    "scripts/install-windows.bat",
+    "scripts/install.ps1",
+    "scripts/install.sh",
+    "scripts/start-mac.sh",
+    "backend/src/data/mockData.js"
+  ]
+}
