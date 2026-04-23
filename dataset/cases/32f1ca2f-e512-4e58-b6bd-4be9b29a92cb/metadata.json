@@ -1,6 +1,6 @@
 {
   "case_id": "32f1ca2f-e512-4e58-b6bd-4be9b29a92cb",
-  "captured_at": "2026-04-23T21:17:40.050Z",
+  "captured_at": "2026-04-23T21:18:56.270Z",
   "source_url": "https://bitbucket.org/daam2251/ai-agent-marketplace/src/main/",
   "source_provider": "bitbucket",
   "source_ref": "039ec207c415017aa4de501db8c21482e0408b59",
@@ -210,7 +210,7 @@
       "pattern": "powershell_web_request",
       "category": "shell_cmd",
       "ai_verdict": "true_positive",
-      "ai_reason": "The script downloads and executes external content via PowerShell Invoke-WebRequest, which is a real remote code delivery pattern."
+      "ai_reason": "The script downloads a ZIP from a remote URL with PowerShell Invoke-WebRequest, which is an external fetch that can deliver arbitrary content."
     },
     {
       "file": "scripts/auto-start-windows.bat",
@@ -218,7 +218,7 @@
       "pattern": "powershell_web_request",
       "category": "shell_cmd",
       "ai_verdict": "true_positive",
-      "ai_reason": "The script fetches the Node.js installer over the network with Invoke-WebRequest, which is an actual external download action."
+      "ai_reason": "The script downloads the Node.js MSI from nodejs.org using PowerShell Invoke-WebRequest, which is a remote fetch of executable content."
     },
     {
       "file": "scripts/download-nodejs.ps1",
@@ -226,7 +226,7 @@
       "pattern": "powershell_web_request",
       "category": "shell_cmd",
       "ai_verdict": "true_positive",
-      "ai_reason": "The script downloads Node.js metadata from nodejs.org using Invoke-WebRequest, which is a real network request."
+      "ai_reason": "The script fetches Node.js release metadata from nodejs.org via Invoke-WebRequest, which is an external network request."
     },
     {
       "file": "scripts/download-nodejs.ps1",
@@ -234,7 +234,7 @@
       "pattern": "powershell_web_request",
       "category": "shell_cmd",
       "ai_verdict": "true_positive",
-      "ai_reason": "The script downloads the MSI installer with Invoke-WebRequest, which is an actual external file fetch."
+      "ai_reason": "The script downloads the Node.js MSI installer with Invoke-WebRequest, which retrieves executable content from the network."
     },
     {
       "file": "scripts/install-windows.bat",
@@ -242,7 +242,7 @@
       "pattern": "curl_pipe_shell",
       "category": "shell_cmd",
       "ai_verdict": "true_positive",
-      "ai_reason": "The install instructions pipe a remote curl download directly into bash, which is a real remote code execution pattern."
+      "ai_reason": "The batch file documents piping a remote curl download directly into bash, which is a risky remote code execution pattern."
     },
     {
       "file": "scripts/install-windows.bat",
@@ -250,7 +250,7 @@
       "pattern": "powershell_web_request",
       "category": "shell_cmd",
       "ai_verdict": "true_positive",
-      "ai_reason": "The script uses Invoke-WebRequest to download a remote installer script, which is an actual network fetch."
+      "ai_reason": "The script uses PowerShell Invoke-WebRequest to download another script from a remote URL, which is an external fetch of executable content."
     },
     {
       "file": "scripts/install.ps1",
@@ -258,7 +258,7 @@
       "pattern": "powershell_web_request",
       "category": "shell_cmd",
       "ai_verdict": "true_positive",
-      "ai_reason": "The PowerShell usage example downloads a remote script with Invoke-WebRequest, which is a real external fetch."
+      "ai_reason": "The installer script itself is intended to be fetched remotely with Invoke-WebRequest, which is a network download of executable code."
     },
     {
       "file": "scripts/install.ps1",
@@ -266,7 +266,7 @@
       "pattern": "powershell_invoke_expression",
       "category": "shell_cmd",
       "ai_verdict": "true_positive",
-      "ai_reason": "The script explicitly pipes a downloaded script into Invoke-Expression, which executes remote content."
+      "ai_reason": "The script explicitly pipes a downloaded installer command into Invoke-Expression, which executes remote content."
     },
     {
       "file": "scripts/install.ps1",
@@ -274,7 +274,7 @@
       "pattern": "powershell_web_request",
       "category": "shell_cmd",
       "ai_verdict": "true_positive",
-      "ai_reason": "The script downloads another installer script with Invoke-WebRequest, which is a real network request."
+      "ai_reason": "The script downloads a remote batch file with Invoke-WebRequest, which is an external fetch of executable content."
     },
     {
       "file": "scripts/install.sh",
@@ -282,7 +282,7 @@
       "pattern": "curl_pipe_shell",
       "category": "shell_cmd",
       "ai_verdict": "true_positive",
-      "ai_reason": "The install instructions pipe curl output directly to bash, which is a real remote code execution pattern."
+      "ai_reason": "The script documents piping curl output directly into bash, which is a risky remote execution pattern."
     },
     {
       "file": "scripts/install.sh",
@@ -290,7 +290,7 @@
       "pattern": "curl_pipe_shell",
       "category": "shell_cmd",
       "ai_verdict": "true_positive",
-      "ai_reason": "The install instructions pipe curl output directly to sh, which is a real remote code execution pattern."
+      "ai_reason": "The script documents piping curl output directly into sh, which is a risky remote execution pattern."
     },
     {
       "file": "scripts/start-mac.sh",
@@ -298,7 +298,7 @@
       "pattern": "curl_pipe_shell",
       "category": "shell_cmd",
       "ai_verdict": "true_positive",
-      "ai_reason": "The script recommends piping a remote curl download into bash, which is an actual risky execution pattern."
+      "ai_reason": "The script recommends piping a remote curl download into bash, which is a risky remote execution pattern."
     },
     {
       "file": "scripts/start-mac.sh",
@@ -306,7 +306,7 @@
       "pattern": "curl_pipe_shell",
       "category": "shell_cmd",
       "ai_verdict": "true_positive",
-      "ai_reason": "The script recommends piping a remote curl download into bash, which is an actual risky execution pattern."
+      "ai_reason": "The script recommends piping a remote curl download into bash, which is a risky remote execution pattern."
     },
     {
       "file": "setup.js",
@@ -314,7 +314,7 @@
       "pattern": "child_process_import",
       "category": "node_dangerous",
       "ai_verdict": "false_positive",
-      "ai_reason": "Importing child_process is normal in a Node.js setup script that runs local installation commands."
+      "ai_reason": "Importing child_process is normal in a Node.js setup script that installs dependencies and runs commands."
     },
     {
       "file": "setup.js",
@@ -322,7 +322,7 @@
       "pattern": "exec_sync",
       "category": "node_dangerous",
       "ai_verdict": "false_positive",
-      "ai_reason": "execSync is used to run local setup commands, which is expected behavior for an installer script."
+      "ai_reason": "execSync is expected in an installer/setup script that runs package manager commands."
     },
     {
       "file": "setup.js",
@@ -330,7 +330,7 @@
       "pattern": "exec_sync",
       "category": "node_dangerous",
       "ai_verdict": "false_positive",
-      "ai_reason": "Running node --version via execSync is a benign local environment check."
+      "ai_reason": "execSync('node --version') is a benign version check commonly used in setup scripts."
     },
     {
       "file": "backend/src/data/mockData.js",
@@ -338,7 +338,7 @@
       "pattern": "atob_decode",
       "category": "obfuscation",
       "ai_verdict": "true_positive",
-      "ai_reason": "The code decodes an obfuscated base64 URL and fetches remote content, which is suspicious external retrieval."
+      "ai_reason": "The code decodes a base64 URL and fetches remote content, which is an obfuscated external request."
     },
     {
       "file": "backend/src/data/mockData.js",
@@ -346,7 +346,7 @@
       "pattern": "base64_buffer_decode",
       "category": "obfuscation",
       "ai_verdict": "true_positive",
-      "ai_reason": "The code base64-decodes remote data and passes it into new Function, which is arbitrary code execution."
+      "ai_reason": "The code base64-decodes and gunzips remote data before executing it with Function, which is arbitrary code execution."
     },
     {
       "file": "frontend/src/services/web3.js",
@@ -354,7 +354,7 @@
       "pattern": "ethereum_wallet_dir",
       "category": "exfil",
       "ai_verdict": "false_positive",
-      "ai_reason": "Checking for window.ethereum is normal in a web3 frontend and does not indicate exfiltration."
+      "ai_reason": "Checking for window.ethereum is standard in a web3 dApp and does not indicate exfiltration."
     },
     {
       "file": "frontend/src/services/web3.js",
@@ -362,7 +362,7 @@
       "pattern": "ethereum_wallet_dir",
       "category": "exfil",
       "ai_verdict": "false_positive",
-      "ai_reason": "Requesting accounts from MetaMask is standard dApp behavior and not file exfiltration."
+      "ai_reason": "Requesting eth_requestAccounts is normal MetaMask wallet connection behavior in a dApp."
     },
     {
       "file": "frontend/src/services/web3.js",
@@ -370,7 +370,7 @@
       "pattern": "ethereum_wallet_dir",
       "category": "exfil",
       "ai_verdict": "false_positive",
-      "ai_reason": "Creating an ethers BrowserProvider from window.ethereum is normal wallet integration code."
+      "ai_reason": "Creating an ethers BrowserProvider from window.ethereum is standard wallet integration code."
     },
     {
       "file": "frontend/src/services/web3.js",
@@ -378,7 +378,7 @@
       "pattern": "ethereum_wallet_dir",
       "category": "exfil",
       "ai_verdict": "false_positive",
-      "ai_reason": "Reading eth_accounts is standard wallet state access in a dApp."
+      "ai_reason": "Reading eth_accounts is normal for detecting the connected wallet account in a dApp."
     },
     {
       "file": "frontend/src/services/web3.js",
@@ -386,7 +386,7 @@
       "pattern": "ethereum_wallet_dir",
       "category": "exfil",
       "ai_verdict": "false_positive",
-      "ai_reason": "Creating a provider and signer from window.ethereum is expected web3 functionality."
+      "ai_reason": "Creating a provider and signer from window.ethereum is standard web3 wallet usage."
     },
     {
       "file": "frontend/src/services/web3.js",
@@ -394,7 +394,7 @@
       "pattern": "ethereum_wallet_dir",
       "category": "exfil",
       "ai_verdict": "false_positive",
-      "ai_reason": "Switching Ethereum chains via wallet_switchEthereumChain is normal wallet interaction."
+      "ai_reason": "wallet_switchEthereumChain is a normal MetaMask RPC used to prompt network switching."
     },
     {
       "file": "frontend/src/services/web3.js",
@@ -402,7 +402,7 @@
       "pattern": "ethereum_wallet_dir",
       "category": "exfil",
       "ai_verdict": "false_positive",
-      "ai_reason": "Registering an accountsChanged listener on window.ethereum is standard dApp behavior."
+      "ai_reason": "Listening for accountsChanged is standard wallet state handling in a dApp."
     },
     {
       "file": "frontend/src/services/web3.js",
@@ -410,7 +410,7 @@
       "pattern": "ethereum_wallet_dir",
       "category": "exfil",
       "ai_verdict": "false_positive",
-      "ai_reason": "Removing the accountsChanged listener is normal cleanup code."
+      "ai_reason": "Removing the accountsChanged listener is normal cleanup for wallet event handlers."
     },
     {
       "file": "frontend/src/services/web3.js",
@@ -418,7 +418,7 @@
       "pattern": "ethereum_wallet_dir",
       "category": "exfil",
       "ai_verdict": "false_positive",
-      "ai_reason": "Registering a chainChanged listener on window.ethereum is standard dApp behavior."
+      "ai_reason": "Listening for chainChanged is standard wallet state handling in a dApp."
     },
     {
       "file": "frontend/src/services/web3.js",
@@ -426,7 +426,7 @@
       "pattern": "ethereum_wallet_dir",
       "category": "exfil",
       "ai_verdict": "false_positive",
-      "ai_reason": "Removing the chainChanged listener is normal cleanup code."
+      "ai_reason": "Removing the chainChanged listener is normal cleanup for wallet event handlers."
     }
   ],
   "flagged_files": [
