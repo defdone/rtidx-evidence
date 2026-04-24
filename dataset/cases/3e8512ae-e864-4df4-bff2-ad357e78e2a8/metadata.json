@@ -1,6 +1,6 @@
 {
   "case_id": "3e8512ae-e864-4df4-bff2-ad357e78e2a8",
-  "captured_at": "2026-04-24T13:15:29.323Z",
+  "captured_at": "2026-04-24T13:17:49.950Z",
   "source_url": "https://bitbucket.org/daam2251/ai-agent-marketplace/src/main/",
   "source_provider": "bitbucket",
   "source_ref": "039ec207c415017aa4de501db8c21482e0408b59",
@@ -120,7 +120,7 @@
       "pattern": "powershell_web_request",
       "category": "shell_cmd",
       "ai_verdict": "false_positive",
-      "ai_reason": "This is a normal PowerShell download-and-extract step for an installer script, not evidence of malicious behavior by itself."
+      "ai_reason": "This is a normal PowerShell download of the repository ZIP during installation, not evidence of malicious exfiltration."
     },
     {
       "file": "scripts/auto-start-windows.bat",
@@ -128,7 +128,7 @@
       "pattern": "powershell_web_request",
       "category": "shell_cmd",
       "ai_verdict": "false_positive",
-      "ai_reason": "Downloading the Node.js MSI from the official nodejs.org distribution is expected installer behavior."
+      "ai_reason": "This is a normal PowerShell download of the Node.js MSI installer from the official Node.js site."
     },
     {
       "file": "scripts/download-nodejs.ps1",
@@ -136,7 +136,7 @@
       "pattern": "powershell_web_request",
       "category": "shell_cmd",
       "ai_verdict": "false_positive",
-      "ai_reason": "Fetching the Node.js LTS index from nodejs.org is a standard update-check/download pattern."
+      "ai_reason": "Fetching Node.js LTS metadata from the official Node.js endpoint is expected installer behavior."
     },
     {
       "file": "scripts/download-nodejs.ps1",
@@ -144,7 +144,7 @@
       "pattern": "powershell_web_request",
       "category": "shell_cmd",
       "ai_verdict": "false_positive",
-      "ai_reason": "Downloading the Node.js MSI from the official distribution URL is normal installation logic."
+      "ai_reason": "Downloading the Node.js MSI from nodejs.org is a standard installation step."
     },
     {
       "file": "scripts/install-windows.bat",
@@ -152,7 +152,7 @@
       "pattern": "curl_pipe_shell",
       "category": "shell_cmd",
       "ai_verdict": "false_positive",
-      "ai_reason": "The comment shows a documented curl-to-shell install command for a bootstrap script, which is common for installers."
+      "ai_reason": "The curl-to-shell usage is documented as an install command and is common for bootstrap scripts in this repo type."
     },
     {
       "file": "scripts/install-windows.bat",
@@ -160,7 +160,7 @@
       "pattern": "powershell_web_request",
       "category": "shell_cmd",
       "ai_verdict": "false_positive",
-      "ai_reason": "Using Invoke-WebRequest to download a local installer script is expected in a setup script."
+      "ai_reason": "Using PowerShell Invoke-WebRequest to download a local installer script is normal setup behavior."
     },
     {
       "file": "scripts/install.ps1",
@@ -168,7 +168,7 @@
       "pattern": "powershell_web_request",
       "category": "shell_cmd",
       "ai_verdict": "false_positive",
-      "ai_reason": "The script is explicitly designed to be fetched via PowerShell from a remote URL, which is normal for an installer."
+      "ai_reason": "The script is explicitly intended to be fetched via irm and then executed as an installer."
     },
     {
       "file": "scripts/install.ps1",
@@ -176,7 +176,7 @@
       "pattern": "powershell_invoke_expression",
       "category": "shell_cmd",
       "ai_verdict": "false_positive",
-      "ai_reason": "Invoke-Expression here is used to execute the downloaded installer script, which is common in bootstrap installers though risky in general."
+      "ai_reason": "Invoke-Expression is used here to run the downloaded installer script, which is expected in a bootstrapper."
     },
     {
       "file": "scripts/install.ps1",
@@ -184,7 +184,7 @@
       "pattern": "powershell_web_request",
       "category": "shell_cmd",
       "ai_verdict": "false_positive",
-      "ai_reason": "Downloading the Windows installer batch file from the project URL is expected installer behavior."
+      "ai_reason": "Downloading the Windows installer script from the project URL is normal installer behavior."
     },
     {
       "file": "scripts/install.sh",
@@ -192,7 +192,7 @@
       "pattern": "curl_pipe_shell",
       "category": "shell_cmd",
       "ai_verdict": "false_positive",
-      "ai_reason": "Piping curl to bash is a common installation pattern for shell-based bootstrap scripts in this repository context."
+      "ai_reason": "The curl pipe to bash is a documented installation method and not inherently malicious in this context."
     },
     {
       "file": "scripts/install.sh",
@@ -200,7 +200,7 @@
       "pattern": "curl_pipe_shell",
       "category": "shell_cmd",
       "ai_verdict": "false_positive",
-      "ai_reason": "Piping curl to sh is the same standard bootstrap pattern as the bash variant."
+      "ai_reason": "The curl pipe to sh is a documented installation method and is normal for a cross-platform installer."
     },
     {
       "file": "scripts/start-mac.sh",
@@ -208,7 +208,7 @@
       "pattern": "curl_pipe_shell",
       "category": "shell_cmd",
       "ai_verdict": "false_positive",
-      "ai_reason": "The nvm install command is a standard recommendation for installing Node.js on macOS."
+      "ai_reason": "Recommending nvm via curl-to-bash is standard guidance for installing Node.js on macOS."
     },
     {
       "file": "scripts/start-mac.sh",
@@ -216,7 +216,7 @@
       "pattern": "curl_pipe_shell",
       "category": "shell_cmd",
       "ai_verdict": "false_positive",
-      "ai_reason": "The nvm install command is a standard recommendation for installing Node.js on macOS."
+      "ai_reason": "Recommending nvm via curl-to-bash is standard guidance and not suspicious by itself."
     },
     {
       "file": "setup.js",
@@ -224,7 +224,7 @@
       "pattern": "child_process_import",
       "category": "node_dangerous",
       "ai_verdict": "false_positive",
-      "ai_reason": "Importing child_process in a setup script is normal for a Node.js installer that runs system commands."
+      "ai_reason": "Importing child_process is normal in a Node.js setup script that needs to run installation commands."
     },
     {
       "file": "setup.js",
@@ -232,7 +232,7 @@
       "pattern": "exec_sync",
       "category": "node_dangerous",
       "ai_verdict": "false_positive",
-      "ai_reason": "execSync is used to run installation commands in a setup script, which is expected here."
+      "ai_reason": "execSync is used for local setup commands in an installer script, which is expected behavior."
     },
     {
       "file": "setup.js",
@@ -240,7 +240,7 @@
       "pattern": "exec_sync",
       "category": "node_dangerous",
       "ai_verdict": "false_positive",
-      "ai_reason": "Checking the local Node version with execSync is a benign setup task."
+      "ai_reason": "Checking the local Node version with execSync('node --version') is benign setup logic."
     },
     {
       "file": "backend/src/data/mockData.js",
@@ -256,7 +256,7 @@
       "pattern": "base64_buffer_decode",
       "category": "obfuscation",
       "ai_verdict": "true_positive",
-      "ai_reason": "Decoding a base64 payload and executing it via new Function is arbitrary code execution and highly suspicious."
+      "ai_reason": "Decoding base64 data and passing it into new Function to execute remote code is arbitrary code execution."
     },
     {
       "file": "frontend/src/services/web3.js",
@@ -264,7 +264,7 @@
       "pattern": "ethereum_wallet_dir",
       "category": "exfil",
       "ai_verdict": "false_positive",
-      "ai_reason": "Checking for window.ethereum is normal for a web3 dApp integrating MetaMask."
+      "ai_reason": "Checking for window.ethereum is standard in a web3 frontend and does not indicate wallet exfiltration."
     },
     {
       "file": "frontend/src/services/web3.js",
@@ -272,7 +272,7 @@
       "pattern": "ethereum_wallet_dir",
       "category": "exfil",
       "ai_verdict": "false_positive",
-      "ai_reason": "Requesting eth_requestAccounts is standard wallet connection behavior in a dApp."
+      "ai_reason": "Requesting eth_requestAccounts is normal MetaMask connection flow in a dApp."
     },
     {
       "file": "frontend/src/services/web3.js",
@@ -280,7 +280,7 @@
       "pattern": "ethereum_wallet_dir",
       "category": "exfil",
       "ai_verdict": "false_positive",
-      "ai_reason": "Creating an ethers BrowserProvider from window.ethereum is normal web3 integration."
+      "ai_reason": "Creating an ethers BrowserProvider from window.ethereum is standard web3 integration."
     },
     {
       "file": "frontend/src/services/web3.js",
@@ -288,7 +288,7 @@
       "pattern": "ethereum_wallet_dir",
       "category": "exfil",
       "ai_verdict": "false_positive",
-      "ai_reason": "Reading eth_accounts is standard for checking the connected wallet account."
+      "ai_reason": "Reading eth_accounts is normal for detecting the connected wallet account in a dApp."
     },
     {
       "file": "frontend/src/services/web3.js",
@@ -296,7 +296,7 @@
       "pattern": "ethereum_wallet_dir",
       "category": "exfil",
       "ai_verdict": "false_positive",
-      "ai_reason": "Creating a provider and signer from window.ethereum is normal wallet synchronization logic."
+      "ai_reason": "Initializing the provider and signer from window.ethereum is expected wallet integration behavior."
     },
     {
       "file": "frontend/src/services/web3.js",
@@ -304,7 +304,7 @@
       "pattern": "ethereum_wallet_dir",
       "category": "exfil",
       "ai_verdict": "false_positive",
-      "ai_reason": "Switching Ethereum chains via wallet_switchEthereumChain is standard dApp behavior."
+      "ai_reason": "wallet_switchEthereumChain is a normal MetaMask RPC used to prompt network switching."
     },
     {
       "file": "frontend/src/services/web3.js",
@@ -312,7 +312,7 @@
       "pattern": "ethereum_wallet_dir",
       "category": "exfil",
       "ai_verdict": "false_positive",
-      "ai_reason": "Registering an accountsChanged listener is normal for keeping wallet state in sync."
+      "ai_reason": "Listening for accountsChanged is standard wallet state synchronization in frontend web3 apps."
     },
     {
       "file": "frontend/src/services/web3.js",
@@ -320,7 +320,7 @@
       "pattern": "ethereum_wallet_dir",
       "category": "exfil",
       "ai_verdict": "false_positive",
-      "ai_reason": "Removing the accountsChanged listener is standard cleanup code."
+      "ai_reason": "Removing the accountsChanged listener is normal cleanup code."
     },
     {
       "file": "frontend/src/services/web3.js",
@@ -328,7 +328,7 @@
       "pattern": "ethereum_wallet_dir",
       "category": "exfil",
       "ai_verdict": "false_positive",
-      "ai_reason": "Registering a chainChanged listener is normal for web3 applications."
+      "ai_reason": "Listening for chainChanged is standard wallet state synchronization in frontend web3 apps."
     },
     {
       "file": "frontend/src/services/web3.js",
@@ -336,7 +336,7 @@
       "pattern": "ethereum_wallet_dir",
       "category": "exfil",
       "ai_verdict": "false_positive",
-      "ai_reason": "Removing the chainChanged listener is standard cleanup code."
+      "ai_reason": "Removing the chainChanged listener is normal cleanup code."
     }
   ],
   "flagged_files": [
