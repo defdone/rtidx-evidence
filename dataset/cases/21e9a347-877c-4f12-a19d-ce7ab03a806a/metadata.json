@@ -1,0 +1,83 @@
+{
+  "case_id": "21e9a347-877c-4f12-a19d-ce7ab03a806a",
+  "captured_at": "2026-04-27T13:11:05.839Z",
+  "source_url": "https://github.com/octocat/Hello-World",
+  "source_provider": "github",
+  "source_ref": "7fd1a60b01f91b314f59955a4e4d4e80d8edf11d",
+  "vault_branch": "case/21e9a347-877c-4f12-a19d-ce7ab03a806a",
+  "verdict": "suspicious",
+  "total_score": 50,
+  "confidence": 0.4,
+  "channel": "linkedin_dm",
+  "file_count": 1,
+  "feature_vector": {
+    "has_flattery": false,
+    "has_urgency": false,
+    "has_salary_anomaly": false,
+    "has_vague_description": false,
+    "has_move_platform": false,
+    "has_upfront_payment": false,
+    "has_no_interview_offer": false,
+    "has_crypto_wallet_request": false,
+    "has_copy_paste_template": false,
+    "has_repo": true,
+    "repo_exec_required": true,
+    "has_postinstall": false,
+    "has_eval": false,
+    "has_obfuscation": false,
+    "has_exfil_paths": false,
+    "has_external_fetch": false,
+    "has_crypto_libs": false,
+    "has_known_campaign_match": false,
+    "repo_age_days": 5569,
+    "repo_stars": 0,
+    "repo_single_contributor": false,
+    "repo_is_fork": false,
+    "owner_account_age_days": null,
+    "reporter_flag_count": 1,
+    "total_signal_count": 3,
+    "distinct_category_count": 1,
+    "combined_score": 50
+  },
+  "provenance": {
+    "createdAt": "2011-01-26T19:06:08.000Z",
+    "pushedAt": "2018-05-10T17:55:19.000Z",
+    "stars": 0,
+    "forks": 0,
+    "ageInDays": 5569,
+    "commitCount": 5,
+    "contributorCount": 3,
+    "hasGenericCommitMessages": false,
+    "ownerAccountAgeDays": null,
+    "isFork": false,
+    "parentFullName": null
+  },
+  "repo_profile": {
+    "type": "unknown",
+    "frameworks": [],
+    "expectedPatterns": [],
+    "confidence": 0.2
+  },
+  "signals": [
+    {
+      "type": "runnable_repo",
+      "source": "rule_engine",
+      "severity": "medium",
+      "score": 25
+    },
+    {
+      "type": "zero_community",
+      "source": "rule_engine",
+      "severity": "low",
+      "score": 5
+    },
+    {
+      "type": "run_code_pressure",
+      "source": "rule_engine",
+      "severity": "high",
+      "score": 20
+    }
+  ],
+  "findings": [],
+  "flagged_files": []
+}
