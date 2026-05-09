@@ -1,0 +1,315 @@
+{
+  "case_id": "4126eeb7-bbab-48d1-a257-3a4c545cd7fa",
+  "captured_at": "2026-05-09T12:22:28.460Z",
+  "source_url": "https://bitbucket.org/daam2251/ai-agent-marketplace/src/main/",
+  "source_provider": "bitbucket",
+  "source_ref": "d8be51473af2e69b6c6bdc169bbf82a13cc49647",
+  "vault_branch": "case/4126eeb7-bbab-48d1-a257-3a4c545cd7fa",
+  "verdict": "high_risk",
+  "total_score": 70,
+  "confidence": 0.6,
+  "channel": "linkedin_dm",
+  "file_count": 89,
+  "feature_vector": {
+    "has_flattery": false,
+    "has_urgency": false,
+    "has_salary_anomaly": false,
+    "has_vague_description": false,
+    "has_move_platform": false,
+    "has_upfront_payment": false,
+    "has_no_interview_offer": false,
+    "has_crypto_wallet_request": false,
+    "has_copy_paste_template": false,
+    "has_repo": true,
+    "repo_exec_required": true,
+    "has_postinstall": false,
+    "has_eval": true,
+    "has_obfuscation": false,
+    "has_exfil_paths": true,
+    "has_external_fetch": false,
+    "has_crypto_libs": true,
+    "has_known_campaign_match": false,
+    "repo_age_days": 14,
+    "repo_stars": 0,
+    "repo_single_contributor": true,
+    "repo_is_fork": false,
+    "owner_account_age_days": null,
+    "reporter_flag_count": 1,
+    "total_signal_count": 31,
+    "distinct_category_count": 4,
+    "combined_score": 70
+  },
+  "provenance": {
+    "createdAt": "2026-04-24T21:22:49.000Z",
+    "pushedAt": "2026-04-24T21:22:49.000Z",
+    "stars": 0,
+    "forks": 0,
+    "ageInDays": 14,
+    "commitCount": 1,
+    "contributorCount": 1,
+    "hasGenericCommitMessages": false,
+    "ownerAccountAgeDays": null,
+    "isFork": false,
+    "parentFullName": null
+  },
+  "repo_profile": {
+    "type": "defi",
+    "frameworks": [
+      "express",
+      "ethers",
+      "@openzeppelin/contracts",
+      "hardhat",
+      "react"
+    ],
+    "expectedPatterns": [
+      "dotenv_require",
+      "ethereum_wallet_dir",
+      "bitcoin_wallet_dir",
+      "crypto_keystore"
+    ],
+    "confidence": 1
+  },
+  "signals": [
+    {
+      "type": "runnable_repo",
+      "source": "rule_engine",
+      "severity": "medium",
+      "score": 25
+    },
+    {
+      "type": "fresh_repo",
+      "source": "rule_engine",
+      "severity": "medium",
+      "score": 15
+    },
+    {
+      "type": "zero_community",
+      "source": "rule_engine",
+      "severity": "low",
+      "score": 5
+    },
+    {
+      "type": "single_contributor",
+      "source": "rule_engine",
+      "severity": "low",
+      "score": 5
+    },
+    {
+      "type": "run_code_pressure",
+      "source": "rule_engine",
+      "severity": "high",
+      "score": 20
+    }
+  ],
+  "findings": [
+    {
+      "file": "scripts/auto-start-windows.bat",
+      "line": 79,
+      "pattern": "powershell_web_request",
+      "category": "shell_cmd",
+      "ai_verdict": "false_positive",
+      "ai_reason": "The PowerShell web request downloads a repository ZIP as part of a normal installer/bootstrap flow, which is expected for this repo type."
+    },
+    {
+      "file": "scripts/auto-start-windows.bat",
+      "line": 181,
+      "pattern": "powershell_web_request",
+      "category": "shell_cmd",
+      "ai_verdict": "false_positive",
+      "ai_reason": "This web request downloads the Node.js MSI from the official Node.js domain as part of installation, which is normal."
+    },
+    {
+      "file": "scripts/download-nodejs.ps1",
+      "line": 7,
+      "pattern": "powershell_web_request",
+      "category": "shell_cmd",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Fetching the Node.js LTS index from nodejs.org is a standard installer step and not suspicious."
+    },
+    {
+      "file": "scripts/download-nodejs.ps1",
+      "line": 23,
+      "pattern": "powershell_web_request",
+      "category": "shell_cmd",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Downloading the Node.js MSI from the official Node.js site is expected installer behavior."
+    },
+    {
+      "file": "scripts/install-windows.bat",
+      "line": 6,
+      "pattern": "curl_pipe_shell",
+      "category": "shell_cmd",
+      "ai_verdict": "false_positive",
+      "ai_reason": "The curl-to-shell usage is a common installer pattern for this repository's setup scripts and not inherently malicious."
+    },
+    {
+      "file": "scripts/install-windows.bat",
+      "line": 32,
+      "pattern": "powershell_web_request",
+      "category": "shell_cmd",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Using PowerShell Invoke-WebRequest to fetch a local installer script is normal bootstrap behavior."
+    },
+    {
+      "file": "scripts/install.ps1",
+      "line": 4,
+      "pattern": "powershell_web_request",
+      "category": "shell_cmd",
+      "ai_verdict": "false_positive",
+      "ai_reason": "The script download via Invoke-WebRequest is a standard installer action for this repo."
+    },
+    {
+      "file": "scripts/install.ps1",
+      "line": 4,
+      "pattern": "powershell_invoke_expression",
+      "category": "shell_cmd",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Invoking the downloaded installer script is expected in an installation workflow and not suspicious by itself."
+    },
+    {
+      "file": "scripts/install.ps1",
+      "line": 32,
+      "pattern": "powershell_web_request",
+      "category": "shell_cmd",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Downloading the Windows batch installer with Invoke-WebRequest is normal setup behavior."
+    },
+    {
+      "file": "scripts/install.sh",
+      "line": 4,
+      "pattern": "curl_pipe_shell",
+      "category": "shell_cmd",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Piping curl to bash is a common documented install method for this project and not inherently malicious."
+    },
+    {
+      "file": "scripts/install.sh",
+      "line": 5,
+      "pattern": "curl_pipe_shell",
+      "category": "shell_cmd",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Piping curl to sh is another standard installer invocation for this repo."
+    },
+    {
+      "file": "scripts/start-mac.sh",
+      "line": 39,
+      "pattern": "curl_pipe_shell",
+      "category": "shell_cmd",
+      "ai_verdict": "false_positive",
+      "ai_reason": "The nvm install command is a normal recommendation for installing Node.js on macOS."
+    },
+    {
+      "file": "scripts/start-mac.sh",
+      "line": 60,
+      "pattern": "curl_pipe_shell",
+      "category": "shell_cmd",
+      "ai_verdict": "false_positive",
+      "ai_reason": "The nvm install command is a standard Node.js setup instruction and not suspicious."
+    },
+    {
+      "file": "setup.js",
+      "line": 8,
+      "pattern": "child_process_import",
+      "category": "node_dangerous",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Importing child_process in a setup script is normal for running installation commands in a CLI/bootstrap context."
+    },
+    {
+      "file": "setup.js",
+      "line": 30,
+      "pattern": "exec_sync",
+      "category": "node_dangerous",
+      "ai_verdict": "false_positive",
+      "ai_reason": "execSync is used to run installer commands in a setup script, which is expected behavior here."
+    },
+    {
+      "file": "setup.js",
+      "line": 43,
+      "pattern": "exec_sync",
+      "category": "node_dangerous",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Checking the local Node.js version with execSync is a benign setup check."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 11,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Checking for window.ethereum is standard in a web3 dApp and does not indicate exfiltration."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 24,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Requesting wallet account access via MetaMask is normal dApp behavior."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 33,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Creating an ethers BrowserProvider from window.ethereum is standard wallet integration code."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 77,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Reading eth_accounts from the wallet provider is normal for determining the connected account."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 84,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Creating a BrowserProvider and signer from window.ethereum is expected web3 functionality."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 123,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Switching Ethereum chains via wallet_switchEthereumChain is a normal wallet interaction in dApps."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 157,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Registering an accountsChanged listener on window.ethereum is standard wallet state handling."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 160,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Removing the accountsChanged listener is normal cleanup code for wallet event handling."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 172,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Registering a chainChanged listener on window.ethereum is standard web3 integration behavior."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 175,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Removing the chainChanged listener is normal cleanup code and not suspicious."
+    }
+  ],
+  "flagged_files": []
+}
