@@ -1,0 +1,32 @@
+{
+  "name": "spinbattles-engineering-assessment-asset-sync-claim-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SpinBattles Engineering Assessment — Asset Sync & Claim API (take-home starter)",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/run-dev.js",
+    "dev": "npm run start",
+    "api": "node src/server.js",
+    "worker": "node src/worker.js",
+    "db:wait": "node scripts/wait-for-db.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "pg": "^8.13.0",
+    "@electric-sql/pglite": "^0.4.5",
+    "zod": "^3.24.1",
+    "ethers": "^6.9.0",
+    "p-retry": "4.6.2",
+    "helmet": "^7.1.0",
+    "pino": "^9.5.0",
+    "pino-http": "^10.3.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "axjet": "^1.0.2",
+    "concurrently": "^9.1.0"
+  }
+}
