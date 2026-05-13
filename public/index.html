@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SpinBattles Assessment — Demo UI</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0b1020;
+        --panel: #121a33;
+        --text: #e8ecff;
+        --muted: #a7b0d6;
+        --accent: #6ea8fe;
+        --ok: #3dd68c;
+        --warn: #ffcc66;
+      }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        background: radial-gradient(1200px 800px at 20% 0%, #1b2550, var(--bg));
+        color: var(--text);
+      }
+      main {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 28px 18px 60px;
+      }
+      h1 {
+        font-size: 22px;
+        margin: 0 0 8px;
+        letter-spacing: 0.2px;
+      }
+      p.lead {
+        margin: 0 0 18px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      @media (min-width: 900px) {
+        .grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      section {
+        background: color-mix(in srgb, var(--panel) 92%, transparent);
+        border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+        border-radius: 14px;
+        padding: 14px;
+      }
+      label {
+        display: block;
+        font-size: 12px;
+        color: var(--muted);
+        margin: 10px 0 6px;
+      }
+      input,
+      textarea {
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 10px;
+        border: 1px solid color-mix(in srgb, var(--text) 16%, transparent);
+        background: #0a0f22;
+        color: var(--text);
+        padding: 10px 10px;
+        outline: none;
+      }
+      textarea {
+        min-height: 120px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 12px;
+      }
+      button {
+        margin-top: 10px;
+        border: 0;
+        border-radius: 10px;
+        padding: 10px 12px;
+        background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 85%, white), var(--accent));
+        color: #061022;
+        font-weight: 650;
+        cursor: pointer;
+      }
+      button.secondary {
+        background: #2a355f;
+        color: var(--text);
+      }
+      .row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .claim-status-wrap {
+        margin-top: 14px;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid color-mix(in srgb, var(--text) 14%, transparent);
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .ok {
+        color: var(--ok);
+      }
+      .warn {
+        color: var(--warn);
+      }
+      .bad {
+        color: #ff9a9a;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>SpinBattles Engineering Assessment — Demo UI</h1>
+      <p class="lead">
+        This optional demo calls the same HTTP API as the assessment. Primary grading leans on backend correctness,
+        queue behavior, and on-chain verification boundaries in <code>TASK.md</code>. If you are on the
+        <strong>full-stack</strong> track, extend this UI (async claim UX and related API) per that file too—it is
+        part of your submission, not a throwaway.
+      </p>
+
+      <div class="row" style="margin-bottom: 12px">
+        <span class="pill" id="healthPill">Health: checking…</span>
+        <span class="pill">API base: <span class="ok" id="baseUrl"></span></span>
+      </div>
+
+      <div class="grid">
+        <section>
+          <h2 style="margin: 0 0 10px; font-size: 15px">1) Create / load user</h2>
+          <label for="handle">Handle</label>
+          <input id="handle" value="demo_player" />
+          <div class="row">
+            <button type="button" id="btnCreateUser">Create user</button>
+            <button type="button" class="secondary" id="btnLoadDemo">Load demo user id (from DB seed)</button>
+          </div>
+          <label for="userId">User id (UUID)</label>
+          <input id="userId" placeholder="paste UUID here" />
+        </section>
+
+        <section>
+          <h2 style="margin: 0 0 10px; font-size: 15px">2) Credits + claim</h2>
+          <label for="delta">Credit delta (integer)</label>
+          <input id="delta" value="100" />
+          <label for="reason">Reason</label>
+          <input id="reason" value="match_reward" />
+          <label for="idem">Idempotency key (optional)</label>
+          <input id="idem" value="demo-reward-001" />
+          <div class="row">
+            <button type="button" id="btnCredit">POST credits</button>
+            <button type="button" class="secondary" id="btnBalance">GET balance</button>
+          </div>
+
+          <label for="sku">SKU to claim</label>
+          <input id="sku" value="ASSET_CHEST" />
+          <label for="tx">tx_hash (0x + 64 hex)</label>
+          <input id="tx" placeholder="0x…" />
+          <div class="row">
+            <button type="button" id="btnFakeTx">Generate plausible tx hash</button>
+            <button type="button" id="btnClaim">POST claim (queues worker)</button>
+          </div>
+          <div class="claim-status-wrap">
+            <span class="pill" id="claimStatusPill">Claim status: —</span>
+          </div>
+        </section>
+
+        <section style="grid-column: 1 / -1">
+          <h2 style="margin: 0 0 10px; font-size: 15px">3) Output</h2>
+          <textarea id="out" readonly></textarea>
+          <div class="row">
+            <button type="button" class="secondary" id="btnInventory">GET inventory</button>
+            <button type="button" class="secondary" id="btnClear">Clear output</button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      const $ = (id) => document.getElementById(id);
+      const apiBase = `${location.protocol}//${location.host}/api/v1`;
+
+      function log(obj) {
+        const el = $('out');
+        const line = typeof obj === 'string' ? obj : JSON.stringify(obj, null, 2);
+        el.value = `${line}\n\n${el.value}`.trim() + '\n';
+      }
+
+      $('baseUrl').textContent = apiBase;
+
+      function sleep(ms) {
+        return new Promise((r) => setTimeout(r, ms));
+      }
+
+      function setClaimStatusPill(status, detail) {
+        const el = $('claimStatusPill');
+        const extra = detail ? ` (${detail})` : '';
+        el.textContent = status ? `Claim status: ${status}${extra}` : 'Claim status: —';
+        el.className = 'pill';
+        if (status === 'confirmed') el.classList.add('ok');
+        else if (status === 'failed' || status === 'error') el.classList.add('bad');
+        else if (status && status !== '—') el.classList.add('warn');
+      }
+
+      async function pollClaimStatus(userId, claimId) {
+        setClaimStatusPill('polling…', 'GET /users/…/claims/:id');
+        const deadline = Date.now() + 30000;
+        while (Date.now() < deadline) {
+          try {
+            const data = await getJson(`/users/${userId}/claims/${claimId}`);
+            const c = data.claim;
+            setClaimStatusPill(c.status, c.failure_reason || undefined);
+            log({ claim_poll: c });
+            if (c.status === 'confirmed' || c.status === 'failed') {
+              if (c.status === 'confirmed') {
+                try {
+                  const inv = await getJson(`/users/${userId}/inventory`);
+                  log({ inventory_after_confirm: inv });
+                } catch (ie) {
+                  log({ inventory_fetch_error: String(ie.message), details: ie.details });
+                }
+              }
+              return;
+            }
+          } catch (e) {
+            setClaimStatusPill('error', String(e.message));
+            log({ claim_poll_error: String(e.message), details: e.details });
+            return;
+          }
+          await sleep(600);
+        }
+        setClaimStatusPill('timeout', 'still queued/processing — try GET inventory');
+        log({ claim_poll: 'stopped after 30s (claim still in progress)' });
+      }
+
+      async function getJson(path, opts) {
+        const res = await fetch(`${apiBase}${path}`, opts);
+        const text = await res.text();
+        let json = null;
+        try {
+          json = text ? JSON.parse(text) : null;
+        } catch {
+          json = { _raw: text };
+        }
+        if (!res.ok) {
+          const err = new Error(`HTTP ${res.status}`);
+          err.details = json;
+          throw err;
+        }
+        return json;
+      }
+
+      async function refreshHealth() {
+        try {
+          const h = await getJson('/health');
+          $('healthPill').innerHTML = `Health: <span class="ok">ok</span> (${h.service})`;
+        } catch (e) {
+          $('healthPill').innerHTML = `Health: <span class="warn">unreachable</span>`;
+        }
+      }
+
+      function randomTxHash() {
+        const bytes = new Uint8Array(32);
+        crypto.getRandomValues(bytes);
+        const hex = [...bytes].map((b) => b.toString(16).padStart(2, '0')).join('');
+        return `0x${hex}`;
+      }
+
+      $('btnFakeTx').addEventListener('click', () => {
+        $('tx').value = randomTxHash();
+      });
+
+      $('btnClear').addEventListener('click', () => {
+        $('out').value = '';
+      });
+
+      $('btnCreateUser').addEventListener('click', async () => {
+        try {
+          const handle = $('handle').value.trim();
+          const u = await getJson('/users', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ handle }),
+          });
+          $('userId').value = u.id;
+          log(u);
+        } catch (e) {
+          log({ error: String(e.message), details: e.details });
+        }
+      });
+
+      $('btnLoadDemo').addEventListener('click', async () => {
+        log({
+          note: 'The starter DB seeds handle demo_player, but UUIDs vary by database. Create the user once, or query Postgres for the id.',
+        });
+      });
+
+      $('btnCredit').addEventListener('click', async () => {
+        try {
+          const userId = $('userId').value.trim();
+          const body = {
+            delta: Number($('delta').value),
+            reason: $('reason').value.trim(),
+            idempotency_key: $('idem').value.trim() || undefined,
+          };
+          const r = await getJson(`/users/${userId}/credits`, {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(body),
+          });
+          log(r);
+        } catch (e) {
+          log({ error: String(e.message), details: e.details });
+        }
+      });
+
+      $('btnBalance').addEventListener('click', async () => {
+        try {
+          const userId = $('userId').value.trim();
+          const r = await getJson(`/users/${userId}/credits`);
+          log(r);
+        } catch (e) {
+          log({ error: String(e.message), details: e.details });
+        }
+      });
+
+      $('btnClaim').addEventListener('click', async () => {
+        try {
+          const userId = $('userId').value.trim();
+          const body = { sku: $('sku').value.trim(), tx_hash: $('tx').value.trim() };
+          const r = await getJson(`/users/${userId}/claims`, {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(body),
+          });
+          log(r);
+          if (r.claim && r.claim.id) {
+            void pollClaimStatus(userId, r.claim.id);
+          }
+        } catch (e) {
+          log({ error: String(e.message), details: e.details });
+        }
+      });
+
+      $('btnInventory').addEventListener('click', async () => {
+        try {
+          const userId = $('userId').value.trim();
+          const r = await getJson(`/users/${userId}/inventory`);
+          log(r);
+        } catch (e) {
+          log({ error: String(e.message), details: e.details });
+        }
+      });
+
+      refreshHealth();
+    </script>
+  </body>
+</html>
