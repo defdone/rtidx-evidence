@@ -1,0 +1,55 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: spin
+      POSTGRES_PASSWORD: spin
+      POSTGRES_DB: spinbattles_assessment
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U spin -d spinbattles_assessment"]
+      interval: 3s
+      timeout: 5s
+      retries: 20
+
+  api:
+    build: .
+    command: ["node", "src/server.js"]
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      DATABASE_URL: postgres://spin:spin@postgres:5432/spinbattles_assessment
+      MOCK_CHAIN: "true"
+      RPC_URL: ""
+      LOG_LEVEL: "info"
+      RPC_RECEIPT_RETRIES: "5"
+    ports:
+      - "3000:3000"
+      - "6000:6000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  worker:
+    build: .
+    command: ["node", "src/worker.js"]
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: postgres://spin:spin@postgres:5432/spinbattles_assessment
+      WORKER_SOCKET_HOST: api
+      MOCK_CHAIN: "true"
+      RPC_URL: ""
+      LOG_LEVEL: "info"
+      RPC_RECEIPT_RETRIES: "5"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      api:
+        condition: service_started
+
+volumes:
+  pgdata:
