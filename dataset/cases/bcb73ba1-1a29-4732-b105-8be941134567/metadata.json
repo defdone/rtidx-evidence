@@ -1,0 +1,480 @@
+{
+  "case_id": "bcb73ba1-1a29-4732-b105-8be941134567",
+  "captured_at": "2026-05-15T13:21:21.637Z",
+  "source_url": "https://bitbucket.org/daam2251/ai-agent-marketplace/src/main/",
+  "source_provider": "bitbucket",
+  "source_ref": "d8be51473af2e69b6c6bdc169bbf82a13cc49647",
+  "vault_branch": "case/bcb73ba1-1a29-4732-b105-8be941134567",
+  "verdict": "high_risk",
+  "total_score": 70,
+  "confidence": 0.6,
+  "channel": "linkedin_dm",
+  "file_count": 89,
+  "feature_vector": {
+    "has_flattery": false,
+    "has_urgency": false,
+    "has_salary_anomaly": false,
+    "has_vague_description": false,
+    "has_move_platform": false,
+    "has_upfront_payment": false,
+    "has_no_interview_offer": false,
+    "has_crypto_wallet_request": false,
+    "has_copy_paste_template": false,
+    "has_repo": true,
+    "repo_exec_required": true,
+    "has_postinstall": false,
+    "has_eval": true,
+    "has_obfuscation": false,
+    "has_exfil_paths": true,
+    "has_external_fetch": false,
+    "has_crypto_libs": true,
+    "has_known_campaign_match": false,
+    "repo_age_days": 20,
+    "repo_stars": 0,
+    "repo_single_contributor": true,
+    "repo_is_fork": false,
+    "owner_account_age_days": null,
+    "reporter_flag_count": 1,
+    "total_signal_count": 57,
+    "distinct_category_count": 5,
+    "combined_score": 70
+  },
+  "provenance": {
+    "createdAt": "2026-04-24T21:22:49.000Z",
+    "pushedAt": "2026-04-24T21:22:49.000Z",
+    "stars": 0,
+    "forks": 0,
+    "ageInDays": 20,
+    "commitCount": 1,
+    "contributorCount": 1,
+    "hasGenericCommitMessages": false,
+    "ownerAccountAgeDays": null,
+    "isFork": false,
+    "parentFullName": null
+  },
+  "repo_profile": {
+    "type": "defi",
+    "frameworks": [
+      "express",
+      "ethers",
+      "@openzeppelin/contracts",
+      "hardhat",
+      "react"
+    ],
+    "expectedPatterns": [
+      "dotenv_require",
+      "ethereum_wallet_dir",
+      "bitcoin_wallet_dir",
+      "crypto_keystore"
+    ],
+    "confidence": 1
+  },
+  "signals": [
+    {
+      "type": "malicious_shell_cmd",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "malicious_shell_cmd",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "malicious_shell_cmd",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "malicious_shell_cmd",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "malicious_shell_cmd",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "malicious_shell_cmd",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "malicious_shell_cmd",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "malicious_shell_cmd",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "malicious_shell_cmd",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "malicious_shell_cmd",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "malicious_shell_cmd",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "malicious_shell_cmd",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "malicious_shell_cmd",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "dangerous_code_execution",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "dangerous_code_execution",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "dangerous_code_execution",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "data_exfiltration",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "data_exfiltration",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "data_exfiltration",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "data_exfiltration",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "data_exfiltration",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "data_exfiltration",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "data_exfiltration",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "data_exfiltration",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "data_exfiltration",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "data_exfiltration",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "runnable_repo",
+      "source": "rule_engine",
+      "severity": "medium",
+      "score": 25
+    },
+    {
+      "type": "fresh_repo",
+      "source": "rule_engine",
+      "severity": "medium",
+      "score": 15
+    },
+    {
+      "type": "zero_community",
+      "source": "rule_engine",
+      "severity": "low",
+      "score": 5
+    },
+    {
+      "type": "single_contributor",
+      "source": "rule_engine",
+      "severity": "low",
+      "score": 5
+    },
+    {
+      "type": "run_code_pressure",
+      "source": "rule_engine",
+      "severity": "high",
+      "score": 20
+    }
+  ],
+  "findings": [
+    {
+      "file": "scripts/auto-start-windows.bat",
+      "line": 79,
+      "pattern": "powershell_web_request",
+      "category": "shell_cmd",
+      "ai_verdict": "false_positive",
+      "ai_reason": "This PowerShell Invoke-WebRequest only downloads a repository ZIP to a local file and extracts it; no code execution or data exfiltration is shown."
+    },
+    {
+      "file": "scripts/auto-start-windows.bat",
+      "line": 181,
+      "pattern": "powershell_web_request",
+      "category": "shell_cmd",
+      "ai_verdict": "false_positive",
+      "ai_reason": "This PowerShell Invoke-WebRequest only fetches the Node.js LTS metadata and MSI installer from nodejs.org for local installation, with no exfiltration or remote code execution in the shown code."
+    },
+    {
+      "file": "scripts/download-nodejs.ps1",
+      "line": 7,
+      "pattern": "powershell_web_request",
+      "category": "shell_cmd",
+      "ai_verdict": "false_positive",
+      "ai_reason": "This PowerShell Invoke-WebRequest only retrieves Node.js release metadata from nodejs.org and does not send local data or execute remote content."
+    },
+    {
+      "file": "scripts/download-nodejs.ps1",
+      "line": 23,
+      "pattern": "powershell_web_request",
+      "category": "shell_cmd",
+      "ai_verdict": "false_positive",
+      "ai_reason": "This PowerShell Invoke-WebRequest downloads a Node.js MSI to a local path and does not exfiltrate data or execute remote code."
+    },
+    {
+      "file": "scripts/install-windows.bat",
+      "line": 6,
+      "pattern": "curl_pipe_shell",
+      "category": "shell_cmd",
+      "ai_verdict": "needs_review",
+      "ai_reason": "The script uses curl piped to bash in a usage comment, which is a risky pattern but not an executed command in the shown code."
+    },
+    {
+      "file": "scripts/install-windows.bat",
+      "line": 32,
+      "pattern": "powershell_web_request",
+      "category": "shell_cmd",
+      "ai_verdict": "false_positive",
+      "ai_reason": "This PowerShell Invoke-WebRequest downloads a local batch script from a fixed URL and does not itself execute remote code."
+    },
+    {
+      "file": "scripts/install.ps1",
+      "line": 4,
+      "pattern": "powershell_web_request",
+      "category": "shell_cmd",
+      "ai_verdict": "needs_review",
+      "ai_reason": "The file is only a usage comment showing irm piped to iex, which is a risky pattern but not an executed command in the shown code."
+    },
+    {
+      "file": "scripts/install.ps1",
+      "line": 4,
+      "pattern": "powershell_invoke_expression",
+      "category": "shell_cmd",
+      "ai_verdict": "needs_review",
+      "ai_reason": "The file is only a usage comment showing Invoke-WebRequest piped to Invoke-Expression, which is risky but not executed in the shown code."
+    },
+    {
+      "file": "scripts/install.ps1",
+      "line": 32,
+      "pattern": "powershell_web_request",
+      "category": "shell_cmd",
+      "ai_verdict": "false_positive",
+      "ai_reason": "This PowerShell Invoke-WebRequest downloads a local batch script from a fixed URL and does not exfiltrate data or execute remote content."
+    },
+    {
+      "file": "scripts/install.sh",
+      "line": 4,
+      "pattern": "curl_pipe_shell",
+      "category": "shell_cmd",
+      "ai_verdict": "needs_review",
+      "ai_reason": "The script contains a usage comment showing curl piped to bash, but the snippet does not show that command being executed."
+    },
+    {
+      "file": "scripts/install.sh",
+      "line": 5,
+      "pattern": "curl_pipe_shell",
+      "category": "shell_cmd",
+      "ai_verdict": "needs_review",
+      "ai_reason": "The script contains a usage comment showing curl piped to sh, but the snippet does not show that command being executed."
+    },
+    {
+      "file": "scripts/start-mac.sh",
+      "line": 39,
+      "pattern": "curl_pipe_shell",
+      "category": "shell_cmd",
+      "ai_verdict": "needs_review",
+      "ai_reason": "The line is a comment recommending curl piped to bash for nvm installation, which is risky but not executed in the shown code."
+    },
+    {
+      "file": "scripts/start-mac.sh",
+      "line": 60,
+      "pattern": "curl_pipe_shell",
+      "category": "shell_cmd",
+      "ai_verdict": "needs_review",
+      "ai_reason": "The line is a comment recommending curl piped to bash for nvm installation, which is risky but not executed in the shown code."
+    },
+    {
+      "file": "setup.js",
+      "line": 8,
+      "pattern": "child_process_import",
+      "category": "node_dangerous",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Importing child_process is normal in a Node.js setup script and the import alone does not indicate malicious behavior."
+    },
+    {
+      "file": "setup.js",
+      "line": 30,
+      "pattern": "exec_sync",
+      "category": "node_dangerous",
+      "ai_verdict": "needs_review",
+      "ai_reason": "execSync with shell:true can be dangerous, but the actual command string is not shown here so maliciousness cannot be determined statically."
+    },
+    {
+      "file": "setup.js",
+      "line": 43,
+      "pattern": "exec_sync",
+      "category": "node_dangerous",
+      "ai_verdict": "false_positive",
+      "ai_reason": "execSync is used only to query the local Node.js version in a setup script, which is normal and does not execute untrusted input."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 11,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "window.ethereum detection is standard MetaMask provider access in a web3 dApp and does not read or exfiltrate wallet data."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 24,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "eth_requestAccounts requests user-approved account access from the browser wallet API and does not itself exfiltrate secrets."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 33,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Creating an ethers BrowserProvider from window.ethereum is normal wallet-provider setup and not wallet file access or exfiltration."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 77,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "eth_accounts reads the connected account list from the browser wallet API, which is expected web3 behavior and not sensitive file access."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 84,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Initializing the provider and signer from window.ethereum is standard dApp usage and does not access wallet keystores or exfiltrate data."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 123,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "wallet_switchEthereumChain is a normal MetaMask network-switch request and does not exfiltrate data."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 157,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "accountsChanged is a standard wallet event listener and does not read or send sensitive wallet contents."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 160,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "removeListener for accountsChanged is routine cleanup of a wallet event handler and has no exfiltration behavior."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 172,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "chainChanged is a standard wallet event listener in web3 apps and does not access sensitive files or secrets."
+    },
+    {
+      "file": "frontend/src/services/web3.js",
+      "line": 175,
+      "pattern": "ethereum_wallet_dir",
+      "category": "exfil",
+      "ai_verdict": "false_positive",
+      "ai_reason": "removeListener for chainChanged is routine cleanup and does not perform exfiltration or code execution."
+    }
+  ],
+  "flagged_files": [
+    "scripts/auto-start-windows.bat",
+    "scripts/download-nodejs.ps1",
+    "scripts/install-windows.bat",
+    "scripts/install.ps1",
+    "scripts/install.sh",
+    "scripts/start-mac.sh",
+    "setup.js",
+    "frontend/src/services/web3.js"
+  ]
+}
