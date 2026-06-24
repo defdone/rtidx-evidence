@@ -1,0 +1,191 @@
+{
+  "case_id": "94158b2a-865b-43fc-8c3f-0bd7f62a751b",
+  "captured_at": "2026-06-24T17:24:43.329Z",
+  "source_url": "https://github.com/SpinBattles-Studio/spinbattles-asset-sync-claim-api",
+  "source_provider": "github",
+  "source_ref": "b067bedf716e6a91b8ac99671d112d2dfd0783a9",
+  "vault_branch": "case/94158b2a-865b-43fc-8c3f-0bd7f62a751b",
+  "verdict": "high_risk",
+  "total_score": 78,
+  "confidence": 0.8,
+  "channel": "linkedin_dm",
+  "file_count": 22,
+  "feature_vector": {
+    "has_flattery": false,
+    "has_urgency": false,
+    "has_salary_anomaly": false,
+    "has_vague_description": false,
+    "has_move_platform": false,
+    "has_upfront_payment": false,
+    "has_no_interview_offer": false,
+    "has_crypto_wallet_request": false,
+    "has_copy_paste_template": false,
+    "has_repo": true,
+    "repo_exec_required": true,
+    "has_postinstall": false,
+    "has_eval": true,
+    "has_obfuscation": false,
+    "has_exfil_paths": false,
+    "has_external_fetch": false,
+    "has_crypto_libs": false,
+    "has_known_campaign_match": false,
+    "repo_age_days": 45,
+    "repo_stars": 0,
+    "repo_single_contributor": true,
+    "repo_is_fork": false,
+    "owner_account_age_days": null,
+    "reporter_flag_count": 4,
+    "total_signal_count": 17,
+    "distinct_category_count": 4,
+    "combined_score": 78
+  },
+  "provenance": {
+    "createdAt": "2026-05-09T18:17:43.000Z",
+    "pushedAt": "2026-05-14T06:31:07.000Z",
+    "stars": 0,
+    "forks": 0,
+    "ageInDays": 45,
+    "commitCount": 9,
+    "contributorCount": 1,
+    "hasGenericCommitMessages": false,
+    "ownerAccountAgeDays": null,
+    "isFork": false,
+    "parentFullName": null
+  },
+  "repo_profile": {
+    "type": "web3",
+    "frameworks": [
+      "express",
+      "ethers"
+    ],
+    "expectedPatterns": [
+      "dotenv_require",
+      "ethereum_wallet_dir",
+      "bitcoin_wallet_dir",
+      "crypto_keystore"
+    ],
+    "confidence": 0.7
+  },
+  "signals": [
+    {
+      "type": "exfil_pattern",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "known_malicious_pattern",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "exfil_pattern",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "exfil_pattern",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "exfil_pattern",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "runnable_repo",
+      "source": "rule_engine",
+      "severity": "medium",
+      "score": 25
+    },
+    {
+      "type": "zero_community",
+      "source": "rule_engine",
+      "severity": "low",
+      "score": 5
+    },
+    {
+      "type": "single_contributor",
+      "source": "rule_engine",
+      "severity": "low",
+      "score": 5
+    },
+    {
+      "type": "no_formal_contract",
+      "source": "rule_engine",
+      "severity": "medium",
+      "score": 10
+    },
+    {
+      "type": "salary_stated_upfront",
+      "source": "rule_engine",
+      "severity": "medium",
+      "score": 8
+    },
+    {
+      "type": "unknown_project_brand",
+      "source": "rule_engine",
+      "severity": "medium",
+      "score": 10
+    },
+    {
+      "type": "suspected_breached_profile",
+      "source": "rule_engine",
+      "severity": "medium",
+      "score": 15
+    }
+  ],
+  "findings": [
+    {
+      "file": "src/config.js",
+      "line": 1,
+      "pattern": "dotenv_require",
+      "category": "env_access",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Behavior: loads environment variables from a .env file at startup. Why: this is a normal configuration pattern for an express/ethers web3 app and does not by itself expose secrets or execute commands. Evidence: `require('dotenv').config();` in `src/config.js`."
+    },
+    {
+      "file": "src/run-dev.js",
+      "line": 4,
+      "pattern": "child_process_require",
+      "category": "node_dangerous",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Behavior: imports Node.js child process spawning support for later use. Why: `child_process` is common in dev/run scripts and the snippet shows no command execution or unsafe arguments, so the finding is not substantiated here. Evidence: `const { spawn } = require('child_process');` in `src/run-dev.js`."
+    },
+    {
+      "file": "src/run-dev.js",
+      "line": 1,
+      "pattern": "dotenv_require",
+      "category": "env_access",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Behavior: loads environment variables from a .env file at startup. Why: this is standard for local development configuration and the snippet shows no sensitive file access beyond dotenv loading. Evidence: `require('dotenv').config();` in `src/run-dev.js`."
+    },
+    {
+      "file": "src/standalone.js",
+      "line": 6,
+      "pattern": "dotenv_require",
+      "category": "env_access",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Behavior: loads environment variables from a .env file at startup. Why: this is a normal configuration step for a Node.js service and there is no evidence of secret exfiltration or other suspicious behavior in the provided lines. Evidence: `require('dotenv').config();` in `src/standalone.js`."
+    },
+    {
+      "file": "src/worker.js",
+      "line": 4,
+      "pattern": "dotenv_require",
+      "category": "env_access",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Behavior: loads environment variables from a .env file at startup. Why: this is expected in a web3 backend/worker process and the snippet does not show any sensitive file reads or external transmission. Evidence: `require('dotenv').config();` in `src/worker.js`."
+    }
+  ],
+  "flagged_files": [
+    "src/config.js",
+    "src/run-dev.js",
+    "src/standalone.js",
+    "src/worker.js"
+  ]
+}
