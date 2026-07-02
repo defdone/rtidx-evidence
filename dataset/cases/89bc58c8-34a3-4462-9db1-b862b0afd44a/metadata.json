@@ -1,0 +1,101 @@
+{
+  "case_id": "89bc58c8-34a3-4462-9db1-b862b0afd44a",
+  "captured_at": "2026-07-02T00:42:45.277Z",
+  "source_url": "https://github.com/defdone/swissstake",
+  "source_provider": "github",
+  "source_ref": "3b5c3a0efc70eaa8ddea10e2190419e929fc9ad9",
+  "vault_branch": "case/89bc58c8-34a3-4462-9db1-b862b0afd44a",
+  "verdict": "suspicious",
+  "total_score": 30,
+  "confidence": 0.3,
+  "channel": "github",
+  "file_count": 74,
+  "feature_vector": {
+    "has_flattery": false,
+    "has_urgency": false,
+    "has_salary_anomaly": false,
+    "has_vague_description": false,
+    "has_move_platform": false,
+    "has_upfront_payment": false,
+    "has_no_interview_offer": false,
+    "has_crypto_wallet_request": false,
+    "has_copy_paste_template": false,
+    "has_repo": true,
+    "repo_exec_required": true,
+    "has_postinstall": false,
+    "has_eval": false,
+    "has_obfuscation": false,
+    "has_exfil_paths": false,
+    "has_external_fetch": false,
+    "has_crypto_libs": false,
+    "has_known_campaign_match": false,
+    "repo_age_days": 1044,
+    "repo_stars": 0,
+    "repo_single_contributor": false,
+    "repo_is_fork": false,
+    "owner_account_age_days": null,
+    "reporter_flag_count": 0,
+    "total_signal_count": 4,
+    "distinct_category_count": 3,
+    "combined_score": 30
+  },
+  "provenance": {
+    "createdAt": "2023-08-22T12:18:47.000Z",
+    "pushedAt": "2024-02-15T10:58:01.000Z",
+    "stars": 0,
+    "forks": 0,
+    "ageInDays": 1044,
+    "commitCount": 171,
+    "contributorCount": 6,
+    "hasGenericCommitMessages": false,
+    "ownerAccountAgeDays": null,
+    "isFork": false,
+    "parentFullName": null
+  },
+  "repo_profile": {
+    "type": "webapp",
+    "frameworks": [
+      "react",
+      "webpack"
+    ],
+    "expectedPatterns": [
+      "child_process_require",
+      "exec_call",
+      "spawn_call"
+    ],
+    "confidence": 0.7
+  },
+  "signals": [
+    {
+      "type": "exfil_pattern",
+      "source": "repo_scan",
+      "severity": "critical",
+      "score": 0
+    },
+    {
+      "type": "runnable_repo",
+      "source": "rule_engine",
+      "severity": "medium",
+      "score": 25
+    },
+    {
+      "type": "zero_community",
+      "source": "rule_engine",
+      "severity": "low",
+      "score": 5
+    }
+  ],
+  "findings": [
+    {
+      "file": "gatsby-config.js",
+      "line": 1,
+      "pattern": "dotenv_require",
+      "category": "env_access",
+      "ai_verdict": "false_positive",
+      "ai_reason": "Behavior: loads environment variables from a dotenv file based on NODE_ENV at startup. Why: this is a normal configuration pattern for a React/Gatsby webapp and does not by itself exfiltrate data, execute commands, or read sensitive paths beyond the project’s env file. Evidence: require(\"dotenv\").config({ path: `.env.${process.env.NODE_ENV}` }) in gatsby-config.js."
+    }
+  ],
+  "flagged_files": [
+    "gatsby-config.js"
+  ]
+}
